@@ -1,0 +1,84 @@
+<template name="contractor">
+  <div class="step-title">
+    <div class="txt">
+      第七步<span>确认联络人信息</span>
+    </div>
+  </div> 
+  <div class="step slabel">
+    <div class="content">
+     <div class="form-box">
+        <div class="editor-row">
+          <label class="label-control">企业联络人：</label>
+          <input type="text" class="form-control" id="liaisonsName" value={{order.contractor.liaisons.liaisonsName}} placeholder="不能为法人或监事">
+        </div>
+        <div class="editor-row">
+          <label for="" class="label-control">身份证：</label>
+          <input type="text" class="form-control" id="liaisonsId" value={{order.contractor.liaisons.liaisonsId}} placeholder="企业联络人18位身份证">
+        </div>
+        <div class="editor-row">
+          <label class="label-control">手机号：</label>
+          <input type="text" class="form-control" id="liaisonsPhone" value={{order.contractor.liaisons.liaisonsPhone}} placeholder="请输入联系手机号">
+        </div>
+        <div class="editor-row">
+          <label class="label-control">邮箱：</label>
+          <input type="text" class="form-control" id="liaisonsEmail" value={{order.contractor.liaisons.liaisonsEmail}} placeholder="请输入邮箱">
+        </div>      
+      </div>
+      <div class="form-box">
+        <div class="editor-row">
+          <label class="label-control">财务负责人：</label>
+          <input class="form-control" id="financialStaffName" placeholder="不能为法人或监事" value={{order.contractor.financialStaff.financialStaffName}}>
+        </div>
+        <div class="editor-row">
+          <label class="label-control">身份证：</label>
+          <input class="form-control" id="financialStaffId" placeholder="财务负责人18位身份证" value={{order.contractor.financialStaff.financialStaffId}}>
+        </div>
+        <div class="editor-row">
+          <label class="label-control">手机号：</label>
+          <input class="form-control" id="financialStaffPhone" placeholder="请输入联系手机号" value={{order.contractor.financialStaff.financialStaffPhone}}>
+        </div>  
+        <div class="editor-row">
+          <label class="label-control">邮箱：</label>
+          <input class="form-control" id="financialStaffEmail" placeholder="请输入邮箱" value={{order.contractor.financialStaff.financialStaffEmail}}>
+        </div>                        
+      </div>
+      <div class="ui message error" id="contractorError" style="display:none"></div>
+      <div class="ui message success" id="contractorSuccess" style="display:none"></div>
+      <button type="button" id="submitContractor" class="ui button btn-theme">确认联络人</button>
+    </div>
+  </div>
+</template>
+
+<template name="companyConsigner">
+<div class="step-title">
+  <div class="txt">
+    第八步<span>确认资料对接人信息</span>
+  </div>
+</div>
+<div class="step slabel">
+  <div class="content">
+
+    <div class="editor-row">
+      <label class="label-control">资料对接人：</label>
+      <input class="form-control" id="consignerName" value={{order.consigner.consignerName}} placeholder="可以是任意负责人">
+    </div>
+    <div class="editor-row">
+      <label class="label-control">手机号：</label>
+      <input class="form-control" id="consignerPhone" value={{order.consigner.consignerPhone}} placeholder="请输入联系手机号">
+    </div>
+    <div class="editor-row">
+      <label class="label-control">邮箱：</label>
+      <input class="form-control" id="consignerEmail" value={{order.consigner.consignerEmail}} placeholder="请输入邮箱">
+    </div>
+
+    <div class="hint-bar">当您提交资料后，客服将在短时间内联系资料对接人核对资料，请保持手机畅通</div>
+    <div class="ui message error" id="consignerError" style="display:none"></div>
+    <div class="ui message success" id="consignerSuccess" style="display:none"></div>
+    <button type="button" id="submitConsigner" class="ui button btn-theme">确认对接人</button>
+  </div>
+</div>
+</template>
+
+<template name="consigner">
+  {{> contractor}} {{> companyConsigner}}
+</template>

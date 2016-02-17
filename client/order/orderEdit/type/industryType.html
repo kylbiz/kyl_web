@@ -1,0 +1,92 @@
+<template name="industryType">
+  <div class="step-title">
+  	<div class="txt">
+			第一步<span>请选择行业</span>	
+  	</div>
+  </div>
+  <div class="step-one step">
+    <div class="content">
+      <select id="industryBig" class="theme form-control" data-placeholder-option="true">
+        <option value="null">行业大类</option>
+        {{#each industryBigLists}}
+          <option value="{{name}}">{{name}}</option>
+        {{/each}}
+      </select>
+      <select id="industrySmall" class="theme form-control" data-placeholder-option="true">
+        <option value="null">行业小类</option>
+        {{#each industrySmallLists}}
+          <option value="{{name}}">{{name}}</option>
+        {{/each}}        
+      </select>
+      <button id="industryBtn" type="button" class="ui button btn-theme">
+        确定
+      </button>
+      {{#if order.industrySmall}}
+        <div style="margin-top:1em;">
+          <p>当前行业类型为： {{order.industrySmall}}</p>
+        </div>
+      {{/if}}
+      <div class="ui message success" id="industrySuccess" style="display:none">
+      </div>       
+      <div class="ui message error" id="industryError" style="display:none">
+      </div>      
+    </div>
+  </div>
+</template>
+
+
+<template name="addRange">
+<div class="ui modal range-box" id="addRange">
+  <div class="modal-title">增加更多经营范围</div>
+  <div class="content">
+    <div class="ui two item stackable tabs menu">
+      <a class="item active" data-tab="definition">服务类</a>
+      <a class="item" data-tab="examples">销售类</a>
+    </div>
+    <div class="main ui">
+      <div class="ui tab active" data-tab="definition">
+            <div class="ui celled list">
+              {{#each serviceTypeList}}
+                <div class="item" data-industrybig="服务类" data-content={{content}}>{{cate}}
+                <i class="angle right icon"></i>
+                </div>
+              {{/each}}
+            </div>
+      </div>
+      <div class="ui tab" data-tab="examples">
+            <div class="ui celled list">
+              {{#each salesTypeList}}
+                <div class="item" data-industrybig="销售类" data-content={{content}}>{{cate}}
+                <i class="angle right icon"></i>
+                </div>
+              {{/each}}
+            </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<i class="checkmark icon"></i>
+</template>
+
+
+
+<template name="rDetail">
+  <div class="ui modal detail-modal">
+    <div class="modal-title">{{cate}}-经营范围选择</div>
+    <div class="content">   
+      <ul>
+        {{#each content}}
+          <li>
+            <div><input type="checkbox" class="check-control"><span class="contentItem">{{name}}</span></div>
+          </li>
+        {{/each}}                       
+      </ul>
+    </div>
+    <div class="actions">
+      <div class="ui positive left button">确认</div>
+      <div class="ui black deny button">取消 </div>
+    </div>
+  </div>
+</template>
+

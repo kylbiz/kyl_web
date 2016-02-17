@@ -1,0 +1,53 @@
+<template name="excutePerson">
+  <div class="step-title">
+    <div class="txt">
+      第六步<span>请确认法人与监事</span>
+    </div>
+  </div>
+  <div class="hint-bar">
+    法人：股东之一作为公司法定代表，享有公司决策权；监事：每个公司须设立一位监事，可由股东之一担任，也可外聘非股东人员；1人公司，则须另外添加监事人信息
+  </div>
+  <div class="step-five step">
+    <div class="content">
+      <div>
+        <div class="editor-row">
+          <label class="label-control">法人：</label>
+          <input type="text" class="form-control" id="legalPersonName" placeholder="法人姓名，必填" value={{order.legalPerson.legalPersonName}}>
+        </div>
+        <div class="editor-row">
+          <label class="label-control">身份证：</label>
+          <input type="text" class="form-control" id="legalPersonId" placeholder="二代18位身份证号，必填" value={{order.legalPerson.legalPersonId}}>
+        </div>
+        <div class="editor-row">
+          <label class="label-control">手机：</label>
+          <input type="text" class="form-control" id="legalPersonPhone" placeholder="法人手机，必填" value={{order.legalPerson.legalPersonPhone}}>
+        </div>
+        <div class="editor-row">
+          <label class="label-control">电话：</label>
+          <input type="text" class="form-control" id="legalPersonTel" placeholder="法人电话" value={{order.legalPerson.legalPersonTel}}>
+        </div>
+        <div class="editor-row">
+          <label class="label-control">邮箱：</label>
+          <input type="text" class="form-control" id="legalPersonEmail" placeholder="法人邮箱，必填" value={{order.legalPerson.legalPersonEmail}}>
+        </div>
+
+
+        <div class="editor-row">
+          <label class="label-control">监事：</label>
+          <input type="text" class="form-control" id="supervisorName" placeholder="监事姓名，必填" value={{order.supervisor.supervisorName}}>
+        </div>
+        <div class="editor-row">
+          <label class="label-control">身份证：</label>
+          <input type="text" class="form-control" id="supervisorId" placeholder="二代18位身份证号，必填" value={{order.supervisor.supervisorId}}>
+        </div>
+        <div class="ui message error" id="personError" style="display:none">
+        </div>
+        <div class="ui message success" id="personSuccess" style="display:none">
+        </div>
+      </div>
+      <div class="editor-row">
+        <button type="button" class="ui button btn-theme">确认法人与监事</button>
+      </div>
+    </div>
+  </div>
+</template>

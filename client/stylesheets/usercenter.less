@@ -1,0 +1,231 @@
+@import 'helpers.import.less';
+
+.usercenter .ui.breadcrumb {
+    padding: 10px 10px; 
+    background-color: rgba(0, 0, 0, 0.03);
+    width: 100%;
+    margin-top: 20px;
+}
+
+.ui.menu .teal.active.item, .ui.teal.menu .active.item {
+  border-color: @theme-color !important;
+  color: @theme-color !important;
+}
+
+i.icon.phone:before {
+  content: "\f095";
+}
+
+.tab-pane .ui.segment.attached {
+  border-top: 0;    
+}
+
+
+.usercenter .tab-pane {
+    margin-left: 1px;    
+}
+
+.usercenter .tab-pane .segment {
+    padding-left: 20px;    
+}
+
+form .label {
+    .inline-block;
+    min-width: 68px;
+}
+
+form .avatar {
+    width: 72px;
+    height: 72px;
+    .border-radius(36px);
+    overflow: hidden;
+    background: #ccc;
+    float: left;
+}
+
+.usercenter .base-info .upload .ui.button{
+//    line-height: 72px;
+//    vertical-align: middle;
+        height: 40x;
+        padding: 0 18px;
+        line-height: 40px;
+        vertical-align: middle;
+       margin-top: 16px;
+      margin-left: 20px;
+}
+
+.message-module {
+    .make-row();
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 18px;   
+    border-bottom: solid 1px #ccc;
+    cursor: pointer;
+}
+.message-module .avatar,.message-module .inner {
+    float: left;
+}
+.message-module .avatar {
+    width: 72px;
+    height: 72px;
+    //.border-radius(36px);
+    overflow: hidden;
+    //background: #ccc;
+    float: left;    
+    margin-right: 20px;
+   img {
+    width: 100%;
+     height: 100%;
+   }
+}
+.message-module .inner {
+    width: 600px;    
+}
+.message-module .inner .content {
+    .make-row();
+
+}
+.message-module .inner .author {
+    font-size: 20px;
+    margin-bottom: 18px;    
+}
+.message-module .content .main{
+    float: left;
+}
+.message-module .content .time {
+    float: right;
+}
+.usercenter .tt {
+    .make-row();
+    margin-bottom: 10px;
+}
+.usercenter .tt .button {
+   float: right;
+}
+.usercenter .tt .text {
+   float: left;
+  font-size: 20px;
+  line-height: 48px;
+  vertical-align:middle;
+  font-weight:700;
+}
+
+.usercenter {
+  .ui.menu {
+    box-shadow: none;
+  }
+  .ui.vertical.menu .active.item {
+    box-shadow: none;
+  }
+  .three.wide.column {
+    border-right: solid 1px #eee;
+  }
+  .ui.grid > .column:not(.row),
+  .ui.grid > .row > .column {
+    padding-right: 0;
+  }
+  .ui.vertical.pointing.menu .active.item:after {
+    border: none;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #d4d4d5;
+    width:0.7rem;
+    height: 0.7rem;
+  }
+  .ui.vertical.pointing.menu .active.item:after {
+    background-color: #fff; 
+  }
+  .ui.vertical.menu .item > i.icon {
+    margin-right: 20px;
+  }
+  .headTable {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .headTable tr {
+    text-align: center;
+    line-height: 48px;
+    background: #eee;
+  }
+  tbody tr.thead {
+    background: #eee;
+  }
+  .td1 {
+    width: 280px; 
+  }
+  .td2 {
+    width: 80px;
+  }
+  tr.divide {
+    height: 20px; 
+    border: 0;
+    >td {
+      border:0 !important;
+    }
+  }
+  .staticTable {
+    border: 0;  
+  }
+  .staticTable tr.divide-24 {
+    height: 20px;
+    width: 100%;
+    border: 0;
+    >td {
+      border:0 !important;
+    }   
+  }
+  
+  td.c1 {
+    width: 320px; 
+  }
+  td.c2 {
+    width: 160px; 
+  }
+  tr.middleman {
+    min-height: 80px; 
+  }
+  tr.middleman>td {
+    vertical-align: middle;
+  }
+}
+
+.myorder .middleman p {
+  margin: 0;
+  margin-bottom: 0.28em;
+}
+.middle td p:last-child {
+  margin-bottom: 0 !important;  
+}
+//.myorder .middleman p:last-child{
+//  margin-bottom: 0 !important;
+//}
+
+.consigner-box {
+  background-color: #fdfdfd;
+  padding: 0;
+  margin-bottom: 20px;
+  width: 348px;
+}
+.myapply .consigner-box .hint-bar {
+  margin-top: 0; 
+}
+.consigner-box.zero-margin {
+  margin: 0; 
+}
+.consigner-box .opition {
+  border-bottom: solid 1px #bbb;
+  padding: 0 12px;
+  line-height: 30px;
+  vertical-align: middle;
+  .make-row();
+    .key,.value {
+     .make-column(); 
+    }
+    .key {
+     min-width: 88px; 
+    }
+  input.shadow {
+   border: none;
+   box-shadow: none;
+   width: 200px;
+  }
+}

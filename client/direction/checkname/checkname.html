@@ -1,0 +1,147 @@
+<template name="checkname">
+<style>
+footer {
+  display: none;
+}
+</style>
+  <div class="search-layout">
+    <div class="site-wrapper">
+      <div class="checkname center">
+        <h1>在线核名</h1>
+        <div class="des">帮助您查询企业名称在同行业是否被占用</div>
+        <div class="search">
+          <input type="text" class="form-control keywords" placeholder="开业啦">
+          <button type="button" class="btn search">
+            查询
+          </button>
+        </div>
+        <div class="hint">注：本系统只提供公司字号查询参考，查名结果以当地工商信息为准</div>        
+      </div>
+    </div>
+  </div>
+  <div class="site-wrapper"> 
+    <div class="result-content">
+      {{#if hasResults}}
+        {{ > resultModel }}
+      {{else}}
+        {{> defaultCheck}}
+      {{/if}} 
+    </div>    
+  </div>
+  
+<div class="ui modal range" id="unique">
+<!--  <i class="icon close"></i>-->
+</div>
+</template>
+
+
+
+
+<template name="resultModel">
+  <div class="root">
+    {{#if keywords}}
+    {{#unless readyflag}}
+    <h3>正在查询名称为 <strong>{{keywords}}</strong> 的公司<br></h3>
+    {{> spinner}}
+    {{/unless}}
+    {{#if readyflag}}
+    {{#if registrationsLength}}
+    <h3>名称为<span class="text-kyl keywords" id="keywords">{{keywords}}</span>的公司已经存在 <span class="text-kyl">{{numberOfResults}}</span> 条 显示 <span class="text-kyl registrationsLength">{{registrationsLength}}</span> 条</h3>
+    {{#each registrations}}
+    {{> registrationResult}}
+    {{/each}}
+    <p hidden id="keywordsL">{{keywords}}</p>
+    <p hidden class="allpageNo">{{allpageNo}}</p>
+    <p hidden class="currentpage">1</p>
+    <p hidden class="hasnext">true</p>
+    {{#if hasnextpage}}
+    <div class="text-center"> <a class="btn btn-more" id="btn-more">加载更多</a> </div>
+    {{/if}}
+    {{else}}
+    <h2>名称为 <strong>{{keywords}}</strong> 的公司不存在<br></h2>
+    {{/if}}
+    {{/if}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="registrationResult">
+	<div class="resultModel" style="margin-bottom:20px">
+		<div class="title">{{companyName}}</div>
+		<div class="content">
+				<div class="address row">
+					<span class="holder">地址：</span>{{companyAddress}}
+				</div>
+				<div class="status row">
+					<span class="holder">企业状态：</span>{{companyStatus}}
+				</div>
+				<div class="info">
+        <button type="button" class="btn btn-sm btn-default form-control" style="float:right;">
+          详细信息
+        </button>
+        <div class="ui modal range">
+          <i class="icon close"></i>
+          <div class="header">
+            详细信息
+          </div>
+          <div class="image content">
+            <div class="description">
+              <ul>
+                {{#each basicDetail}}
+                  <li>{{key}} &nbsp; {{value}}</li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+			</div>			
+		</div>
+	</div>
+</template>  
+
+<template name="defaultCheck">
+  <div class="root">
+    <h3>名称为<span class="text-kyl keywords" id="keywords">开业啦</span>的公司已经存在 <span class="text-kyl">1</span> 条 显示 <span class="text-kyl registrationsLength"> 1 </span> 条</h3>
+    <div class="resultModel" style="margin-bottom:20px">
+      <div class="title">开业啦（上海）网络技术有限公司</div>
+      <div class="content">
+          <div class="address row">
+            <span class="holder">地址：</span>上海市青浦区公园路99号舜浦大厦7层O区777室
+          </div>
+          <div class="status row">
+            <span class="holder">企业状态：</span>确立
+          </div>
+          <div class="info">
+          <button type="button" class="btn btn-sm btn-default form-control" style="float:right;">
+            详细信息
+          </button>
+        </div>      
+      </div>
+    </div>
+  </div>
+  <div class="ui modal range default">
+    <i class="icon close"></i>
+    <div class="header">
+      详细信息
+    </div>
+    <div class="image content">
+      <div class="description">
+        <ul>
+          <li>名称: &nbsp; 开业啦（上海）网络技术有限公司</li>
+          <li>注册号: &nbsp; 310118003066320</li>
+          <li>法定代表人姓名: &nbsp;  虞波</li>
+          <li>住所: &nbsp; 上海市青浦区公园路99号舜浦大厦7层O区777室</li>
+          <li>注册资本: &nbsp;  300.000000 万人民币</li>
+          <li>企业状态: &nbsp;  确立</li>
+          <li>公司类型: &nbsp;  有限责任公司(国内合资)</li>
+          <li>成立日期: &nbsp;  2014年11月19日</li>
+          <li>营业期限: &nbsp;  2014年11月19日 至2024年11月18日</li>
+          <li>登记机关: &nbsp;  青浦区市场监督管理局  </li>
+          <li>受理机关: &nbsp;  青浦区市场监督管理局</li>
+          <li>经营范围: &nbsp; 网络信息科技、计算机科技、电子科技专业领域内的技术开发、技术咨询、技术服务，技术转让，市场营销策划，市场调查与研究（不得从事社会调查、社会调研、民意调查、民意测验），会务服务，商务信息咨询，设计、制作各类广告，利用自有媒体发布广告，翻译服务，知识产权代理（除专利代理），文化艺术交流策划（除演出经纪），电子商务（不得从事增值电信），网络科技（不得从事科技中介），企业登记代理，销售计算机软硬件（除计算机信息系统安全专用产品）。【依法须经批准的项目，经相关部门批准后方可开展经营活动】</li>
+        </ul>
+      </div>
+    </div>
+  </div>  
+</template>  
+

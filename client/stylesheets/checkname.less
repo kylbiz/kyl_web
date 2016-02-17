@@ -1,0 +1,136 @@
+@import 'helpers.import.less';
+
+.search-layout {
+	background-image: url(/images/search-bar.jpg);
+	background-size: cover;
+	background-position: center center;
+	padding-top: 48px;
+	padding-bottom: 20px;
+}
+
+.site-wrapper {
+	.checkname {
+		color: #fff;
+		h1 {
+			font-size: 58px;
+			margin-bottom: 2px;
+			font-weight: normal;
+		}
+		.des {
+			margin-bottom: 20px;
+			font-size: 18px;
+		}
+		.hint {
+//		  color: #888;
+			color: #fff;
+		}
+		.clearfix {
+			display: inline-block;
+			margin: 0 auto;
+		}
+		.form-control {
+			width: 880px;
+			padding: 0;
+			height: 50px;
+			line-height: 50px;
+			vertical-align: middle;
+			margin: 0 auto;
+			margin-bottom: 10px;
+			border-radius: 0;			
+			float: left;
+			padding-left: 20px;
+		}		
+		.search {
+			.inline-block;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.search .btn {
+			padding: 0;
+			height: 50px;
+			line-height: 50px;
+			vertical-align: middle;
+			width: 112px;
+			background-color: @theme-color;
+			border-radius: 0;
+			margin-left: 20px;
+		}
+	}	
+}
+
+.resultModel {
+	background-color: #fff;
+	width: 100%;
+	border: solid 1px #ccc;
+	margin: 0 auto;
+//	height: 220px;
+	color: #000;
+	text-align: left;
+	.title {
+		height: 46px;
+		line-height: 46px;
+		vertical-align: middle;
+		border-bottom: solid 1px #ccc;
+		padding: 0 28px;
+		font-size: 18px;
+	}
+	.content {
+		padding: 16px 28px;	
+		font-size: 16px;
+		color: #909090;
+	}
+	.info {
+		.make-row();
+	}
+	.info .btn {
+		float: right;
+		border: solid 1px #ccc;
+		border-radius: 3px;
+	}
+	.row {
+		margin-bottom: 20px;	
+	}
+}
+
+.modal.range {
+	ul li {
+		float: left;
+		padding: 6px 12px;
+		font-size: 16px;
+		line-height: 24px;
+		vertical-align: middle;
+		margin-right: 8px;
+	}
+  .description {
+    ul li {
+      float:none;
+      margin:0;
+    }
+  }
+}
+
+	.result-out {
+		margin-top: 48px;
+		font-weight: 700;
+		font-size: 16px;
+		margin-bottom: 20px;
+		span {
+			font-size: 22px;
+			margin: 0 6px;
+		}
+	}
+
+.root {
+	margin-bottom: 20px;	
+}
+
+.ui.modal > .close {
+  top:0;
+  right:10px;
+  color: #000;
+}
+
+.result-content h3 {
+  text-align:center;
+  padding-top:20px;
+}

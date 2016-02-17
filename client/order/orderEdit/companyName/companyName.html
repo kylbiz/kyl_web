@@ -1,0 +1,28 @@
+<template name="companyName">
+	<div class="step-title">
+		<div class="txt">
+			第三步<span>请确认企业名称</span>
+		</div>
+	</div>
+  <div class="hint-bar">
+    （企业名称=字号+行业+公司性质）例：开业啦（上海）网络技术有限公司=开业啦（字号）+网络技术（行业）+有限公司（公司性质）
+  </div>	
+	<div class="step-three step">
+		<div class="content">
+			<div class="editor-row">
+				<input type="text" id="mainName" class="form-control" placeholder="请输入主字号" value={{order.companyName.mainName}}> {{#if order.industrySmall}} （上海）{{order.industrySmall}} 有限公司 {{/if}}
+			</div>
+			<div class="editor-row">
+				<input type="text" id="alternativeName1" class="form-control" placeholder="请输入备选字号" value={{order.companyName.alternativeName1}}>
+				<input type="text" id="alternativeName2" class="form-control" placeholder="请输入备选字号" value={{order.companyName.alternativeName2}}>
+				<input type="text" id="alternativeName3" class="form-control" placeholder="请输入备选字号" value={{order.companyName.alternativeName3}}>
+				<input type="text" id="alternativeName4" class="form-control" placeholder="请输入备选字号" value={{order.companyName.alternativeName4}}>
+			</div>
+			<div class="ui message error" id="nameError" style="display:none"></div>
+			<div class="ui message success" id="nameSuccess" style="display:none"></div>
+			<div class="editor-row">
+				<button type="button" id="companyName" class="ui button btn-theme">确认企业名称</button>
+			</div>
+		</div>
+	</div>
+</template>

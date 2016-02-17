@@ -1,0 +1,75 @@
+<template name="indexlayout">
+  <div id="wrap">
+    <div id="main" class="clearfix">
+      <header class="headerlayout">
+        {{> staticheader}}
+      </header>
+      {{> home}} 
+      {{> helper}}          
+    </div>    
+  </div>
+  <footer id="footer">
+    {{> footer}}
+  </footer> 
+  <script type="text/javascript">
+  BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4000663192, selector: 'BizQQWPA'});
+  </script>     
+</template>
+
+
+
+<template name="basicLayout">
+  <div id="wrap">
+    <div id="main" class="clearfix">
+      <header class="headerlayout">
+        {{> header}}
+      </header>
+      {{> yield}} 
+      {{> helper}}          
+    </div>    
+  </div>
+  <footer id="footer">
+    {{> footer}}
+  </footer> 
+  <script type="text/javascript">
+  BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4000663192, selector: 'BizQQWPA'});
+  </script>     
+</template>
+
+
+
+<template name="helper">
+  <div id="helper">
+    <ul>
+      <li>
+        <div class="icon icon-1" id="toTop"></div>
+      </li>
+      <li>
+        <!-- company-qq: 2536027577 -->
+        <div id="BizQQWPA" class="icon icon-2">
+        </div>
+      </li>
+      <li>
+        <a href="http://z.kyl.biz">
+          <div class="icon icon-3">
+            <i class="qrcode"></i>
+          </div>
+        </a>
+      </li>
+      <li>
+        <div class="icon icon-4">
+          <div class="qrcode">
+            <img src="/images/index/qrcode.png" alt="">
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="icon icon-5">
+          <div class="telephone">
+            <img src="/images/index/helper_telephone.png" alt="">
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>

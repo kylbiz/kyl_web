@@ -1,0 +1,156 @@
+@import 'helpers.import.less';
+
+header {
+	background: #fff;	
+}
+.square {		
+	.sidebar-nav {
+		width: 320px;
+		float: left;
+		position: absolute;
+		left: 0;
+		top: 0;
+    z-index:2000;
+	}
+	.logo-container {
+		background: #fff;	
+		padding: 28px 20px;		
+		margin-bottom: 10px;
+		.make-row();
+		.content {
+			float: left;
+			.title {
+				font-size: 24px;
+			}
+			.des {
+				font-size: 14px;				
+			}
+		}		
+	}
+	.logo-icon {
+		float: left;
+		width: 60px;
+		height: 60px;
+		margin-right: 14px;
+		img {
+		width: 100%;
+		height: 100%;
+		}
+	}
+	.list {
+		background: #fff;	
+		padding: 0 20px;		
+		.title {
+			line-height: 48px;
+			font-size: 20px;
+			vertical-align: middle;
+			font-weight: bold;
+		}
+		ul li {
+		 height: 80px;	
+		 line-height: 80px;
+		 overflow: hidden;
+		 vertical-align: middle;
+		 font-size: 18px;	
+		 border-top: solid 1px #ccc;
+		 span {
+				color: @other-theme-color; 
+			  margin-right: 6px;
+		 }
+		}
+	}
+	.main-content {
+		float: left;
+		width: 100%;
+		position: relative;
+		padding-left: 326px;
+		.ui.breadcrumb {
+			background: #fff;
+			width: 100%;
+			margin: 0 !important;
+			padding-left: 2em;	
+			padding-top: 1em;
+			padding-bottom: 1em;
+//			margin-bottom: 12px;
+			a:hover {
+				color: #000;	
+			}
+			a.active {
+				color: #000;					
+			}
+		}
+		.box-container {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			.box {
+				padding: 12px;		
+				.make-row();			
+				position: relative;
+				margin-bottom: 12px;
+				background: #fff;				
+			}
+			.photo {
+				width: 244px;
+				height: 158px;
+				border: solid 1px #ccc;
+				float: left;
+				margin-right: 12px;
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.content {
+				float: left;
+				position: absolute;
+				padding-left: 256px;
+				padding-right: 60px;						
+			}
+			.title {
+				margin-top: 20px;
+				margin-bottom: 40px;
+				font-size: 24px;
+				line-height: 32px;
+				vertical-align: middle;
+				.time {
+					float: right;		
+					font-size: 16px;
+					color: #959595;
+				}
+			}
+			.des {
+				font-size: 16px;	
+				line-height: 28px;
+				vertical-align: middle;
+				height: 56px;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+.site-wrapper {
+	position: relative;
+}
+.square {
+	.box-container {
+		.cover {
+			min-height: 506px;
+			background: #fff;
+			padding: 20px 30px;
+			.mtitle {
+				font-size: 22px;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.mtime {
+				color: #959595;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			.mcontent {
+				font-size: 16px;
+			}
+		}		
+	}
+}

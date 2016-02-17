@@ -1,0 +1,60 @@
+<template name="help">
+
+<div class="banner-sub banner-sub-05">
+  <h1 class="hidden">支付帮助</h1>
+</div>
+<div class="container childCon">
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="subNav">
+      <h1>开业啦</h1>
+        <ul>
+          <li><a href="{{pathFor 'aboutus'}}">关于我们</a></li>
+          <li><a href="{{pathFor 'joinus'}}">加入我们</a></li>
+          <li><a href="{{pathFor 'contactus'}}">联系我们</a></li>
+          <li><a href="{{pathFor 'faq'}}">常见问题</a></li>
+          <li class="cur"><a href="{{pathFor 'help'}}">支付帮助</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-9 childRight problem">
+      <div class="box">
+        <h1>以下是支付的一些常见问题</h1>
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>问：</strong>一共有哪几种支付方式？</div>
+          <div class="panel-body"> <strong>答：</strong>
+            <p>目前支持微信支付和支付宝。</p>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>问：</strong>支付成功后会有提示吗？</div>
+          <div class="panel-body"> <strong>答：</strong>
+            <p>支付成功后，我们的客服会在5分钟内与您联系确认。</p>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>问：</strong>支付额度不够，是否可以分开支付？</div>
+          <div class="panel-body"> <strong>答：</strong>
+            <p>订单金额只能一次性支付，不能分开支付。</p>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center help-steps">
+        <div class="col-xs-4">
+          <div class="line-box img-circle"><span class="glyphicon glyphicon-qrcode"></span></div>
+          <h4>扫二维码</h4>
+        </div>
+        <div class="col-xs-4">
+          <div class="line-box img-circle"><span class="glyphicon glyphicon-usd"></span></div>
+          <h4>支付</h4>
+        </div>
+        <div class="col-xs-4">
+          <div class="line-box img-circle"><span class="glyphicon glyphicon-saved"></span></div>
+          <h4>客服确认</h4>
+        </div>
+        <span class="glyphicon glyphicon-arrow-right arrow-1"></span> <span class="glyphicon glyphicon-arrow-right arrow-2"></span> </div>
+    </div>
+  </div>
+</div>
+
+</template>

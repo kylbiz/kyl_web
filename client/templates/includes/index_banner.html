@@ -1,0 +1,52 @@
+<template name="index_banner">
+<div class="banner">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"> 
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active" style="background:url(/images/banner8.png) top center;"><a href="http://m.kyl.biz/huodong/150925" target="_blank"></a></div>
+      <div class="item" style="background:url(/images/banner1.png) top center;"><a href="{{pathFor 'jisu'}}"><strong>极速注册，公司注册0担忧，16天极速办理，超时就我就陪</strong></a></div>
+      <div class="item" style="background:url(/images/banner2.png) top center;"><a href="#"><strong>无忧创业套餐</strong></a></div>
+      <div class="item" style="background:url(/images/banner3.png) top center;"><a href="{{pathFor 'yiyuan'}}"><strong>一块钱 开启你的梦想之门</strong></a></div>
+      <div class="item" style="background:url(/images/banner5.png) top center;"><a href="{{pathFor 'speedup'}}"><strong>创业公司加速计划，五大引擎，助你做风口上的猪</strong></a></div>
+      <div class="item" style="background:url(/images/banner7.jpg) top center;"><a href="{{pathFor 'jizhang'}}"><strong>开业啦为你开启，低成本创业时代，全国最低，极限冰点价 100元/月</strong></a></div>
+    </div>
+    <!-- Controls --> 
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
+  <div class="container">
+    <div class="free-box animated fadeInDown">
+      <h1>免费咨询</h1>
+      <h2>输入手机号码，点击免费咨询，<br>
+        我们的客服会在30秒内回拨给您</h2>
+      <hr>
+      
+      {{#autoForm collection="webInquiry" id="webInquiry" type="insert" doc=defaultValues}}
+      <div class="{{#if afFieldIsInvalid name='mobilephone'}}aaa{{/if}}">
+        <div class="form-group{{#if afFieldIsInvalid name='mobilephone'}} has-error{{/if}}">
+          <label for="mobile">手机号码：</label>
+          {{> afFieldInput name='mobilephone' autofocus='' placeholder="例如：17717693192"}}
+          {{#if afFieldIsInvalid name='mobilephone'}}
+          <span class="help-block">请输入正确的手机号码</span>
+          {{/if}}
+        </div>
+        <input type="submit" class="btn btn-kyl btn-block submit-tel-btn" value="立即提交" />
+      </div>
+      {{/autoForm}}
+      
+      <div class="submit-end text-center animated fadeInRight" style=" display:none;">
+        <div id="counter"></div>
+        <hr>
+        <h6>还没有收到电话？点击下面按钮重新提交</h6>
+        <a href="{{pathFor 'homepage'}}" type="button" class="btn btn-primary btn-block resub-btn" disabled >重新提交</a>
+      </div>
+    </div>
+  </div>
+</div>
+</template>

@@ -1,0 +1,87 @@
+<template name="yinhang">
+<div class="sub-banner banner-yhkh">
+  <div class="container">
+    <div class="sub-text animated fadeInLeft  "><img src="/images/banner-yhkh.png"></div>
+    <div class="free-box animated fadeInDown">
+      <h1>银行开户</h1>
+      <h2>在线预约办开户，零等待</h2>
+      <hr>
+      <form>
+        <div class="form-group">
+          <label>开户银行：</label>
+          <ul class="pro-address">
+            <li class="cur"><span data-money="200">招商银行</span></li>
+            <li><span data-money="200">中国银行</span></li>
+          </ul>
+        </div>
+        <div class="form-group">
+          <label>开业啦价：</label>
+          <span>￥<strong>200</strong></span> </div>
+        <button type="button" data-placement="left"  data-toggle="popover" data-trigger="focus"  data-html="true" title="打开微信，扫描二维码购买" data-content="<img src='/images/pay-yhkh.png'/>" class="btn btn-kyl btn-block">扫二维码，微信购买</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="{{pathFor 'homepage'}}">首页</a></li>
+    <li class="active">银行开户</li>
+  </ol>
+</div>
+<div class="page pro-text-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <p>注册公司后，需要到银行开一个基本账户</p>
+        <p>来办理日常转账结算和现金收付</p>
+        <p>开业啦提供代办服务，帮您 <span class="text-gold">节省时间和精力</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page">
+  <div class="container">
+    <h1>我们的服务流程</h1>
+    <div class="row step3">
+      <div class="col-xs-3 col-xs-offset-2">
+        <div class="line-box img-circle"><img src="/images/icon-upfile.png" class="img-responsive"></div>
+        <h2>材料提交</h2>
+      </div>
+      <div class="col-xs-3">
+        <div class="line-box img-circle"><img src="/images/icon-bank-yy.png" class="img-responsive"></div>
+        <h2>银行预约</h2>
+      </div>
+      <div class="col-xs-3">
+        <div class="line-box img-circle"><img src="/images/icon-bank-kh.png" class="img-responsive"></div>
+        <h2>开户办理</h2>
+      </div>
+      <span class="glyphicon glyphicon-arrow-right arrow-1"></span> <span class="glyphicon glyphicon-arrow-right arrow-2"></span> </div>
+  </div>
+</div>
+<div class="page step4 grey-bg">
+  <div class="container">
+    <h1>办理完成后，你会得到</h1>
+    <div class="row">
+      <div class="col-xs-3 text-center br">
+        <div class="line-box img-circle"><img src="/images/icon-bank-ukey.png" class="img-responsive"></div>
+        <h2>Ukey*2</h2>
+      </div>
+      <div class="col-xs-3 text-center br">
+        <div class="line-box img-circle"><img src="/images/icon-bank-wy.png" class="img-responsive"></div>
+        <h2>网银</h2>
+      </div>
+      <div class="col-xs-3 text-center br">
+        <div class="line-box img-circle"><img src="/images/icon-bank-qyk.png" class="img-responsive"></div>
+        <h2>印鉴卡</h2>
+      </div>
+      <div class="col-xs-3 text-center">
+        <div class="line-box img-circle"><img src="/images/icon-bank-xkz.png" class="img-responsive"></div>
+        <h2>开户许可证</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> howtoservice}}
+
+</template>

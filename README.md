@@ -1,11 +1,27 @@
-kyl3
+开业啦官网WEB
 -------
-kyl3, the offical website for KYL at version 3.0 is programmed with meteor . You can visit our website [www.kyl.biz](http://www.kyl.biz)
+[开业啦官网WEB](http://www.kyl.biz)，是开业啦官网3.0版本，欢迎各种问题。
 
-Any questions is welcome! Contracts: `zunkun.liu@kyl.biz`
+本网站采用 `meteor` 框架，开发和运行请采用 `meteor`技术支持，具体如下：
 
+### 安装配置步骤
+#### 第一步: 配置 `meteor`环境
 
-#### Meteor packages list
+需要配置 `nodejs , meteor, mongodb `环境，请做相应的环境配置
+
+我的配置如下
+``` shell
+node        v4.2.2
+meteor      v1.1.0.3
+mongodb     v3.0.6
+```
+
+#### 第二步： 新建 meteor 项目，并复制 .meteor 项目到当前root目录下
+1. `$ meteor create meteor_temp_project`
+2. `$ cp meteor_temp_project/.meteor your_kyl_web_root`
+
+#### 第三步：安装kyl_web项目所依赖的`meteor packages`
+使用 `$ meteor add meteor_package` 方式依次安装如下package
 
 ```shell
 accounts-password           1.1.1  Password support for accounts
@@ -24,17 +40,7 @@ semantic:ui-css             1.12.3* Semantic UI - CSS Release of Semantic UI
 useraccounts:semantic-ui    1.11.1* Accounts Templates styled for Semantic UI.
 ```
 
-#### Attention
-生成首页 html 代码入口在 /server/universal/startup.js
+#### 启动项目
+`$ meteor --port 3000`
 
-####Logs: 
-
-2015-12-01
-1. 修改股东信息添加的bug
-2. 撤销双十一活动
-
-### LICENCE
-KYL ALL RIGHTS RESERVED.
-
-
-
+### LICENSE MIT

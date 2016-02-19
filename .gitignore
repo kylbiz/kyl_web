@@ -33,8 +33,11 @@ node_modules
 .node_repl_history
 
 # Meteor package
-.meteor
+
 packages
 
 # Mac .DS_Store package
 .DS_Store
+
+.meteor/local
+.meteor/meteorite

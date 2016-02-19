@@ -56,7 +56,7 @@ function genBCPaySign() {
 Meteor.methods({
   "ShopListsPayOptions": function(shoplistOptions) {
     var openid = randomWord(false, 40);
-    var title = "开业啦创业服务"
+    var title = [];
     var out_trade_no = openid; //自定义订单号
     var trace_id = Meteor.userId(); //自定义购买者id
     function ShopPayOptions(callback) {
@@ -76,6 +76,7 @@ Meteor.methods({
         if (Meteor.userId() && shoplists.length > 0) {
           var moneyAmount = 0;
           var relationIdLists = [];
+
           shoplists.forEach(function(shoplist) {
             var relateionId = shoplist.relateionId;
             var money = shoplist.money;
@@ -87,19 +88,25 @@ Meteor.methods({
               money = 0;
             }
             moneyAmount += money;
+            var servicedetail = shoplist.servicedetail || shoplist.servicename;
+            title.push(servicedetail);
+
             relationIdLists.push(shoplist.relationId);
           });
 
+          var _title_temp = title.toString().slice(0, 130).replace(/\+/g, "|") || "开业啦创业服务";
+
           //--------------------------------------
           moneyAmount = moneyAmount * 100; // use cents 
-
-          var sign = CryptoJS.MD5(appId + title + moneyAmount + out_trade_no + appSecret).toString(); //商品信息hash值，32位小写，含义和生成方式见下文
+         
+          var sign = CryptoJS.MD5(appId + _title_temp + moneyAmount + out_trade_no + appSecret).toString(); //商品信息hash值，32位小写，含义和生成方式见下文
           var optional = {
             relationIdLists: relationIdLists.toString(),
             invoice: invoice
           };
+          
           var options = {
-            title: title,
+            title: _title_temp,
             amount: moneyAmount,
             out_trade_no: out_trade_no,
             trace_id: trace_id,

@@ -143,10 +143,12 @@ Template.shopcart.events({
 					var relationId = $(element).attr('data-relationid');
 					var money = $(element).attr('data-money');
 					var servicename = $(element).attr('data-servicename');
+					var servicedetail = $(element).attr("data-servicedetail") || servicename;
 					var list = {
 						relationId: relationId,
 						money: money,
-						servicename: servicename
+						servicename: servicename,
+						servicedetail: servicedetail
 					}
 					shoplists.push(list);
 				}

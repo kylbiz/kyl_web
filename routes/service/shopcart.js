@@ -24,10 +24,25 @@ Router.route('/shopcart', {
 					createTime: -1
 				}
 			});
+
+			var shopcarts_temp = shopcarts.map(function(shopcart) {
+				if(shopcart.hasOwnProperty("servicesNameList")) {
+					var servicesNameList = shopcart.servicesNameList;
+					var length = servicesNameList.length;
+					var servicedetail = "";
+					for(var i = 0; i < length; i++) {
+						servicedetail += servicesNameList[i].name;
+					}
+					shopcart.servicedetail = servicedetail;
+				}
+			
+				return shopcart;
+			})
+			
 			return {
 				userAddresses: userAddresses,
 				addressCount: userAddresses.count(),
-				shopcarts: shopcarts
+				shopcarts: shopcarts_temp
 			}
 		}
 	}	

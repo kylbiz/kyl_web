@@ -39,9 +39,9 @@ Meteor.methods({
     html += body;
     html += "\n</html>"
     // console.log(html)
-    fs.writeFile("../../../../../public/index.html", html, function(err) {
-      console.log(arguments)
-    });
+    // fs.writeFile("../../../../../public/index.html", html, function(err) {
+    //   console.log(arguments)
+    // });
 
   }
 })

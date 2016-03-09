@@ -89,4 +89,6 @@ Meteor.publish('getShopCart', function(userId) {
 })
 
 
-
+Meteor.publish('getPayLogs', function() {
+  return PayLogs.find({payed: true});
+})

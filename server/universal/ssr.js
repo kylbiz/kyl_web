@@ -1,5 +1,5 @@
 var head = '<head>'
-            + '\n<title>开业啦(上海)网络科技有限公司</title>'
+            + '\n<title>开业啦（上海）网络技术有限公司</title>'
             + '\n<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />'
             + '\n<link rel="stylesheet" href="/index.min.css">'
             + '\n<link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">'

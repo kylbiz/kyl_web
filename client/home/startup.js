@@ -10,6 +10,6 @@ Meteor.startup(function() {
     }
     // 下面是生成首页html 的接口
     // var body = Blaze.toHTML(Template.indexlayout);
-    // Meteor.call("generateindex", body);
+    // Meteor.call("generateindex", body); 
   }
 })

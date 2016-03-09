@@ -439,7 +439,7 @@ img {
   display: inline-block;
   width: 40px;
   height: 30px;
-  background-image: url(../images/sprite.png);
+  background-image: url(http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/ads/images/sprite.png);
   vertical-align: -3px;
 }
 .section.part_2 .title .icon-2 {
@@ -456,13 +456,13 @@ img {
   margin-right: 32px;
 }
 .section.part_3 .icon-1 {
-  background: url(../images/tr_1.png);
+  background: url(http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/ads/images/tr_1.png);
 }
 .section.part_3 .icon-2 {
-  background: url(../images/tr_2.png);
+  background: url(http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/ads/images/tr_2.png);
 }
 .section.part_3 .icon-3 {
-  background: url(../images/tr_3.png);
+  background: url(http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/ads/images/tr_3.png);
 }
 .main-title.title-bg {
   border-bottom: solid 5px #FFF83D;

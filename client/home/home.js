@@ -12,7 +12,7 @@ Template.home.rendered=function(){
 	
 	Modernizr.load([
 		{
-			load: ['/plugins/unslider.min.js','/plugins/countTo.js'],
+			load: ['http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/plugins/unslider.min.js','http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/plugins/countTo.js'],
 			complete: function () {
         
         $('#count-number').countTo();

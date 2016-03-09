@@ -8,15 +8,15 @@ Template.header.helpers({
 
 
 
-Template.header.onRendered(function() {
-  var user = Meteor.user();
-  if (user && user.hasOwnProperty("username")) {
-    var username = user.username;
-    Cookies.set('username', username);
-  } else {
-    Cookies.remove("username");
-  }
-})
+// Template.header.onRendered(function() {
+//   var user = Meteor.user();
+//   if (user && user.hasOwnProperty("username")) {
+//     var username = user.username;
+//     Cookies.set('username', username);
+//   } else {
+//     Cookies.remove("username");
+//   }
+// })
 
 
 

@@ -8,15 +8,33 @@ Template.header.helpers({
 
 
 
-// Template.header.onRendered(function() {
-//   var user = Meteor.user();
-//   if (user && user.hasOwnProperty("username")) {
-//     var username = user.username;
-//     Cookies.set('username', username);
-//   } else {
-//     Cookies.remove("username");
-//   }
-// })
+Template.header.onCreated(function() {
+  var self = this;
+  self.autorun(function() {
+    var user = Meteor.user();
+    if (user && user.hasOwnProperty("username")) {
+      var username = user.username;
+      console.log("This set username")
+      Cookies.set('username', username);
+      console.log("username: " + username)
+    } else {
+      Cookies.remove("username");
+    }
+  })
+})
+
+Template.slimLayout.onCreated(function() {
+  var self = this;
+  self.autorun(function() {
+    var user = Meteor.user();
+    if (user && user.hasOwnProperty("username")) {
+      var username = user.username;
+      Cookies.set('username', username);
+    } else {
+      Cookies.remove("username");
+    }
+  })
+})
 
 
 

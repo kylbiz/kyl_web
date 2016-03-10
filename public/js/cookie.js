@@ -1,3 +1,4 @@
+$(document).ready(function() {
   var username = Cookies.get("username");
   if (username) {
     $("header .username").text(username);
@@ -7,3 +8,5 @@
     $(".accountL").show();
     $(".usercenterL").hide();
   }
+
+});

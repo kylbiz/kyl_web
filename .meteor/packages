@@ -7,7 +7,6 @@
 meteor-platform
 accounts-password
 dburles:collection-helpers
-frozeman:storage
 iron:router
 jquery
 less
@@ -15,19 +14,12 @@ meteorhacks:npm
 momentjs:moment
 
 npm-container
-jaywon:meteor-node-uuid
 http
-accounts-base
 jparker:crypto-md5
-rexzh0u:bxslider
 sacha:spin
-fabienb4:autoform-semantic-ui
 sha
 npm-bcrypt
 cfs:http-methods
 manuelschoebel:ms-seo
 #spiderable
-benjaminrh:jquery-cookie
-spiderable
 ongoworks:security
-nitrolabs:cdn

@@ -62,7 +62,7 @@ Template.registration.rendered = function() {
 //----------------------------------------------------------------------
 Template.finance.rendered = function() {
   setTimeout(function() {
-    $('.headerL li.serviceL').addClass('active').siblings().removeClass("active");
+    $('.headerL li.financeL').addClass('active').siblings().removeClass("active");
   }, 100)
 }
 

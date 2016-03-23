@@ -3,6 +3,7 @@ Template.registration.onRendered(function(){
     $('.ui.modal.photo')
     .modal('show')
   });
+  Session.set("productType","sepical");
 });
 
 Template.contractusHandle.onRendered(function(){
@@ -13,9 +14,21 @@ Template.contractusHandle.onRendered(function(){
 });
 
 Template.RegistrationHandle.helpers({
-  "RegistrationList": function() {
-    var productTypeName = Session.get("productTypeName");
-    return RegistrationLists.findOne({type: productTypeName});
+  "RegistrationLists": function() {
+    return RegistrationLists.find();
+  },
+  "RegistrationList":function(){
+    var type = Session.get("productType");
+    return RegistrationLists.findOne({type: type});
   }
 })
 
+Template.RegistrationHandle.events({
+  "click .typeSelect li":function(e){
+    var self = $(e.currentTarget);
+    var type = self.data("type"); 
+    self.addClass("active").siblings().removeClass("active");
+    Session.set("productType",type);    
+    $(".zoneSelect li").first().addClass("active").siblings().removeClass("active");
+  }
+})

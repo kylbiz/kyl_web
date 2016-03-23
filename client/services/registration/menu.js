@@ -97,8 +97,8 @@ Template.RegistrationTypeList.events({
     var rgistrationType = event.currentTarget;
     $(rgistrationType).addClass("active").siblings().removeClass("active")
     setTimeout(function() {
-      $('.zoneSelect li').first().addClass('active').siblings().removeClass('active');
-      Session.set('zone', $('.zoneSelect li').first().html());
+//      $('.zoneSelect li').first().addClass('active').siblings().removeClass('active');
+//      Session.set('zone', $('.zoneSelect li').first().html());
       Session.set('payment', $('.zoneSelect li').first().attr("data-payment"));
       Session.set('message', $('.zoneSelect li').first().attr("data-message"));
     }, 100)

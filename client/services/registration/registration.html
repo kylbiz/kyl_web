@@ -118,15 +118,16 @@
 		cursor: pointer;
 	}
 	</style>
+	<!--
 	<div class="tab-content menuTab">
 		<div class="tab-pane active">
 			<ul class="productTypeName">
-<!-- 				{{#if $eq productTypeName "year2016"}}
+				{{#if $eq productTypeName "year2016"}}
 				<li class="typeName active"><a href="/registration/year2016">新春特惠</a></li>
 				{{else}}
 				<li class="typeName"><a href="/registration/year2016">新春特惠</a></li>
 				{{/if}}
-				<li class="divide">|</li> -->
+				<li class="divide">|</li>
 
 				{{#if $eq productTypeName "touzi"}}
 				<li class="typeName active"><a href="/registration/touzi">投资管理</a></li>
@@ -206,6 +207,7 @@
 			</ul>
 		</div>
 	</div>
+	-->
 </template>
 
 
@@ -213,40 +215,59 @@
 	<div class="main clearfix" id="oTopTarget">
 		<div class="board-left">
 			<div class="photo">
-				<img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/{{imgURI}}" alt="公司注册">
+				<img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/registration.png" alt="公司注册">						
 			</div>
 		</div>
 		<div class="board-right">
 			<div class="box auto">
+        <div>
+          <div class="placeholder">选择类型：</div>
+          <div class="selects typeSelect">
+           
+            <ul>
+              {{#each $mapped RegistrationLists}}
+                {{#if $first}}
+                    <li data-type="{{type}}" class="active">{{name}}</li>                       
+                    {{else}}
+                    <li data-type="{{type}}">{{name}}</li>                           
+                {{/if}}                  
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+<!--			  {{#if RegistrationList.services}}-->
 				<div>
 					<div class="placeholder">选择区域：</div>
 					<div class="selects zoneSelect">
 						<ul>
 							{{#each RegistrationList.services}}
-							<li data-payment="{{payment}}" data-message="{{message}}">{{zone}}</li>
+    							<li data-payment="{{payment}}" data-message="{{message}}">{{name}}</li>							    
 							{{/each}}
 						</ul>
 					</div>
 					<div class="ui message error" id="zoneError" style="display:none"></div>
 				</div>
+<!--				{{/if}}-->
+<!--
 				<div class="oput">
 					<div class="key">备注：</div>
 					<div class="value">
 						{{messageL}}
 					</div>
 				</div>
-				<div style="margin-top:50px">
-					<span id="baseService" class="hidden">三章三证</span>
-					<div class="placeholder">您将获得：</div>
-					<div class="selects">
-						<span class="oput">新版营业执照、新版营业执照副本、公司章、法人章、财务章<a class="overlook" href="#">点击查看</a></span>
+-->
+				<div class="oput">
+					<div class="key">注意：</div>
+					<div class="value">
+						没有行业限制，需要办理行业许可证请另行咨询
 					</div>
-				</div>
-				<div class="base-info">
+				</div>      
+
+		 <div class="base-info" style="margin-top:50px">			
 					<div class="price">
-						<span class="key">费用：</span>
+						<span class="key">费用：</span>		
 						<span class="holder">
-							￥<span id="moneyAmount">{{paymentL}}</span>
+							￥<span id="moneyAmount">{{RegistrationList.price}}</span>
 						</span>元	
 					</div>
 <!--
@@ -256,6 +277,15 @@
 					</div>
 				-->
 			</div>
+			
+      <div>
+        <span id="baseService" class="hidden">三章三证</span>
+        <div class="placeholder">您将获得：</div>
+        <div class="selects">
+          <span class="oput">新版营业执照、新版营业执照副本、公司章、法人章、财务章<a class="overlook" href="#">点击查看</a></span>
+        </div>
+      </div>
+							
 			<div class="ui message error" id="orderError" style="display:none"></div>
 			<div class="one">
 				<button class="ui button" id="buy" type="button">购买</button>

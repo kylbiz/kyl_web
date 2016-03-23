@@ -1,3 +1,68 @@
+var registrationLists = [    
+{
+  "name": "特价区域注册",
+  "type":"sepical",
+  "price":1,
+   "services":[
+     {
+       name:"奉贤",
+       payment: "1"      
+     }
+   ]
+},
+{
+  "name": "热点区域注册",
+  "type":"suburb",
+  "price":500,  
+   "services":[
+     {
+       name:"奉贤",
+       payment: 500       
+     },
+     {
+       name:"崇明",
+       payment: 500          
+     },
+     {
+       name:"青浦",
+       payment: 500          
+     },
+     {
+       name:"金山",
+       payment: 500          
+     }
+   ]
+},  
+{
+  "name":"市区公司注册",
+  "type":"urban",
+  "price":1000,    
+  "services":[
+    {
+      name:"虹口",
+      payment:1000     
+    },
+    {
+      name:"普陀",
+      payment:1000           
+    },
+    {
+      name:"杨浦",
+      payment:1000          
+    },
+    {
+      name:"嘉定",
+      payment:1000          
+    },
+    {
+      name:"长宁",
+      payment:1000          
+    }    
+  ]    
+}
+];
+
+
 var SeoDatas = [
   {
     type: 'home',
@@ -132,136 +197,136 @@ var licenseLists = [
 ];
 
 
-var registrationLists=[
-  // {
-  //   name:'1元注册', 
-  //   type: 'yiyuan',
-  //   services: [
-  //     {zone: '金山', payment: 1, message: '注册时长25天，行业以文化创意类为主，办理时需要股东到场一次'},
-  //     {zone: '松江', payment: 1, message: '时长20天'},
-  //     {zone: '嘉定', payment: 1, message: '科技、金融类优先，办理时需股东到场一次，注册时长20天'},
-  //     {zone: '奉贤', payment: 1, message: '注册时长20天，无其他要求'}
-  //   ]
-  // },
-  {
-    name:'新春特惠', 
-    type: 'year2016',
-    services: [
-      {zone: '奉贤', payment: 99, message: '注册时长20天，无其他要求'}
-    ]
-  },
-  {
-    name:'极速注册', 
-    type: 'jisu',
-    services: [
-      {zone: '虹口', payment: 1000, message: '核名通过并且提交资料后7个工作日'}
-    ]
-  },
-  {
-    name:'电商公司', 
-    type: 'dianshang',
-    services: [
-      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '嘉定', payment: 299, message: '科技、金融类优先，办理时需股东到场一次，注册时长20天'},
-      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '浦东', payment: 299, message: '注册时长20天，注册资金500万以上'}, 
-      {zone: '青浦', payment: 299, message: '注册时长25天，无其他要求'}, 
-      {zone: '黄浦', payment: 299, message: '注册时长20天，无其他要求'}
-    ]
-  },
-  {
-    name:'教育公司', 
-    type: 'jiaoyu',
-    services: [
-      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}, 
-      {zone: '杨浦', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'}
-    ]
-  },
-  {
-    name:'金融信息公司', 
-    type: 'jinrong',
-    services: [
-      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '嘉定', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '浦东', payment: 299, message: '注册时长20天，办理时需股东到场一次'},
-      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'},
-      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '杨浦', payment: 299, message: '注册时长20天，无其他要求'}
-    ]
-  },
-  {
-    name:'移动互联网公司', 
-    type: 'yidong',
-    services: [
-      {zone: '虹口', payment: 299, message: '注册时长15天，无其他要求'}, 
-      {zone: '杨浦', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '长宁', payment: 299, message: '注册时长20天'},    
-      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'}
-    ]
-  },
-  {
-    name:'文化传媒公司',
-    type: 'wenhua',
-    services: [
-      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '浦东', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '青浦', payment: 299, message: '注册时长25天，无其他要求'}, 
-      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}, 
-      {zone: '嘉定', payment: 299, message: '注册时长20天、办理时需股东到场一次'},
-      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '黄浦', payment: 299, message: '注册时长20天，无其他要求'}
-    ]
-  },
-  {
-    name:'商务服务公司',
-    type: 'shangwu',
-    services: [
-      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '浦东', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '青浦', payment: 299, message: '注册时长25天，无其他要求'}, 
-      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}, 
-      {zone: '嘉定', payment: 299, message: '注册时长20天，办理时需股东到场一次'},
-      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '黄浦', payment: 299, message: '注册时长20天，无其他要求'}
-    ]
-  },
-  {
-    name:'建筑设计公司',
-    type: 'jianzhu',
-    services: [
-      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '浦东', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '青浦', payment: 299, message: '注册时长25天，无其他要求'}, 
-      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'}, 
-      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}, 
-      {zone: '嘉定', payment: 299, message: '注册时长20天，办理时需股东到场一次'},
-      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '黄浦', payment: 299, message: '注册时长20天，无其他要求'}
-   ]
- },
- {
-    name:'医疗公司', 
-    type: 'yiliao',
-    services: [
-      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'},
-      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}
-    ]
-  }
-];
+//var registrationLists=[
+//  // {
+//  //   name:'1元注册', 
+//  //   type: 'yiyuan',
+//  //   services: [
+//  //     {zone: '金山', payment: 1, message: '注册时长25天，行业以文化创意类为主，办理时需要股东到场一次'},
+//  //     {zone: '松江', payment: 1, message: '时长20天'},
+//  //     {zone: '嘉定', payment: 1, message: '科技、金融类优先，办理时需股东到场一次，注册时长20天'},
+//  //     {zone: '奉贤', payment: 1, message: '注册时长20天，无其他要求'}
+//  //   ]
+//  // },
+//  {
+//    name:'新春特惠', 
+//    type: 'year2016',
+//    services: [
+//      {zone: '奉贤', payment: 99, message: '注册时长20天，无其他要求'}
+//    ]
+//  },
+//  {
+//    name:'极速注册', 
+//    type: 'jisu',
+//    services: [
+//      {zone: '虹口', payment: 1000, message: '核名通过并且提交资料后7个工作日'}
+//    ]
+//  },
+//  {
+//    name:'电商公司', 
+//    type: 'dianshang',
+//    services: [
+//      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '嘉定', payment: 299, message: '科技、金融类优先，办理时需股东到场一次，注册时长20天'},
+//      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '浦东', payment: 299, message: '注册时长20天，注册资金500万以上'}, 
+//      {zone: '青浦', payment: 299, message: '注册时长25天，无其他要求'}, 
+//      {zone: '黄浦', payment: 299, message: '注册时长20天，无其他要求'}
+//    ]
+//  },
+//  {
+//    name:'教育公司', 
+//    type: 'jiaoyu',
+//    services: [
+//      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}, 
+//      {zone: '杨浦', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'}
+//    ]
+//  },
+//  {
+//    name:'金融信息公司', 
+//    type: 'jinrong',
+//    services: [
+//      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '嘉定', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '浦东', payment: 299, message: '注册时长20天，办理时需股东到场一次'},
+//      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'},
+//      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '杨浦', payment: 299, message: '注册时长20天，无其他要求'}
+//    ]
+//  },
+//  {
+//    name:'移动互联网公司', 
+//    type: 'yidong',
+//    services: [
+//      {zone: '虹口', payment: 299, message: '注册时长15天，无其他要求'}, 
+//      {zone: '杨浦', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '长宁', payment: 299, message: '注册时长20天'},    
+//      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'}
+//    ]
+//  },
+//  {
+//    name:'文化传媒公司',
+//    type: 'wenhua',
+//    services: [
+//      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '浦东', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '青浦', payment: 299, message: '注册时长25天，无其他要求'}, 
+//      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}, 
+//      {zone: '嘉定', payment: 299, message: '注册时长20天、办理时需股东到场一次'},
+//      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '黄浦', payment: 299, message: '注册时长20天，无其他要求'}
+//    ]
+//  },
+//  {
+//    name:'商务服务公司',
+//    type: 'shangwu',
+//    services: [
+//      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '浦东', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '青浦', payment: 299, message: '注册时长25天，无其他要求'}, 
+//      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}, 
+//      {zone: '嘉定', payment: 299, message: '注册时长20天，办理时需股东到场一次'},
+//      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '黄浦', payment: 299, message: '注册时长20天，无其他要求'}
+//    ]
+//  },
+//  {
+//    name:'建筑设计公司',
+//    type: 'jianzhu',
+//    services: [
+//      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '普陀', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '虹口', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '浦东', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '青浦', payment: 299, message: '注册时长25天，无其他要求'}, 
+//      {zone: '松江', payment: 299, message: '注册时长20天，无其他要求'}, 
+//      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}, 
+//      {zone: '嘉定', payment: 299, message: '注册时长20天，办理时需股东到场一次'},
+//      {zone: '崇明', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '黄浦', payment: 299, message: '注册时长20天，无其他要求'}
+//   ]
+// },
+// {
+//    name:'医疗公司', 
+//    type: 'yiliao',
+//    services: [
+//      {zone: '奉贤', payment: 299, message: '注册时长20天，无其他要求'},
+//      {zone: '金山', payment: 299, message: '注册时长25天，办理时需要股东到场一次'}
+//    ]
+//  }
+//];
 
 
 var assuranceLists = [

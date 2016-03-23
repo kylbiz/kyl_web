@@ -59,46 +59,70 @@
       </div>
       <div class="board-right">
         <div class="box">
-        
           <div>
-            <div class="placeholder">选择套餐：</div>
-            <div class="selects" id="packpage">
+            <div class="placeholder">类型：</div>
+            <div class="selects financeType">
               <ul>
-                <li class="active" data-combo="1">零申报套餐</li>
-                <li data-combo="2">普通行业套餐</li>
+                <li class="active" data-finance="small">小规模纳税人</li>
+                <li data-finance="common">一般纳税人</li>
               </ul>
             </div>
           </div>
         
-          <div>
-            <div class="placeholder">时间：</div>
-            <div class="selects financePeriod">
-              <ul>         
-                  <li data-payment="6">6个月</li>
-                  <li data-payment="12">12个月</li>                  
-              </ul>
-            </div>
+        <div class="auto">
+          <div class="placeholder">服务：</div>
+          <div class="selects financeService">
+            <ul>
+              <li class="active" data-service="1">抄报税（零申报）</li>
+              <li data-service="2">抄报税+核税</li>
+              <li data-service="3">年度公示+汇算清缴</li>
+              <li data-service="4">抄报税（零申报）+年度公示+汇算清缴</li>          
+              <li data-service="5">抄报税+核税+年度公示+汇算清缴</li>
+            </ul>
           </div>
-        
-          <div>
-            <div class="placeholder">您将获得：</div>
-            <div class="selects">
-              <div class="hint1">
-                <span class="oput">法人一证通、办税人联系卡（无发票）<a class="overlook" href="#">点击查看</a></span>
-              </div>
-              <div class="hint2">
-                <span class="oput">法人一证通、办税人联系卡、金税盘、发票章、发票（有发票）<a class="overlook" href="#">点击查看</a></span>
-              </div>
-            </div>
+        </div>
+      {{#if financeList.timeType}}
+        <div>
+          <div class="placeholder">时间：</div>
+          <div class="selects financePeriod">
+            <ul>
+              {{#each financeList.lists}}
+                <li data-payment={{payment}}>{{period}}</li>
+              {{/each}}
+            </ul>
           </div>
+        </div>
+      {{else}}
+        <div style="display:none;">
+          <div class="placeholder">时间：</div>
+          <div class="selects financePeriod">
+            <ul>
+              {{#each financeList.lists}}
+                <li data-payment={{payment}}>{{period}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      {{/if}}
+				<div>
+					<div class="placeholder">您将获得：</div>
+					<div class="selects">
+<div class="hint1">
+					<span class="oput">法人一证通、办税人联系卡（无发票）<a class="overlook" href="#">点击查看</a></span>  
+</div>
+<div class="hint2">
+					<span class="oput">法人一证通、办税人联系卡、金税盘、发票章、发票（有发票）<a class="overlook" href="#">点击查看</a></span>  
+</div>
 
-          <div class="base-info">
-            <div class="price">
-              <div class="key">费用：</div>
-              <span class="holder">￥<span>{{totalAmount}}</span></span>元
-            </div>
+					</div>
+				</div>
+
+        <div class="base-info">
+          <div class="price">
+            <div class="key">费用：</div>
+            <span class="holder">￥<span id="financePayment">{{financePayment}}</span></span>元
           </div>
-          
+        </div>
         <div class="one">
           <a class="ui button" id="buy" href="javascript:void(0)">购买</a>
         </div>

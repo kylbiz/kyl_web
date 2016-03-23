@@ -1,4 +1,3 @@
-
 Meteor.publish('userInfos', function(uid) {
   return Meteor.users.find({uid: uid});
 })
@@ -25,8 +24,8 @@ Meteor.publish('orderLists', function(userId) {
 })
 
 
-Meteor.publish('registrationLists', function(type) {
-  return RegistrationLists.find({type: type});
+Meteor.publish('registrationLists', function() {
+  return RegistrationLists.find();
 })
 
 Meteor.publish('assuranceLists', function() {

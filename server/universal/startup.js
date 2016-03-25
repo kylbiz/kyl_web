@@ -2,34 +2,37 @@ var registrationLists = [
 {
   "name": "特价区域注册",
   "type":"sepical",
-  "price":1,
    "services":[
      {
        name:"奉贤",
-       payment: "1"      
+       payment: "1",
+       message:"仅限文化娱乐和科技行业"
      }
    ]
 },
 {
   "name": "热点区域注册",
-  "type":"suburb",
-  "price":500,  
+  "type":"suburb", 
    "services":[
      {
        name:"奉贤",
-       payment: 500       
+       payment: 500,
+       message:"没有行业限制，需要办理行业许可证请另外咨询"
      },
      {
        name:"崇明",
-       payment: 500          
+       payment: 500,
+       message:"不接受贸易、文化娱乐（音乐创作、影视文化）行业"
      },
      {
        name:"青浦",
-       payment: 500          
+       payment: 500,
+       message:"没有行业限制，需要办理行业许可证请另外咨询"
      },
      {
        name:"金山",
-       payment: 500          
+       payment: 500,
+       message:"没有行业限制，需要办理行业许可证请另外咨询"
      }
    ]
 },  
@@ -40,23 +43,28 @@ var registrationLists = [
   "services":[
     {
       name:"虹口",
-      payment:1000     
+      payment:1000,
+      message:"不接受贸易行业"
     },
     {
       name:"普陀",
-      payment:1000           
+      payment:1000,
+      message:"仅限科技行业，注册资金300万以上"
     },
     {
       name:"杨浦",
-      payment:1000          
+      payment:1000,
+      message:"仅限科技行业"
     },
     {
       name:"嘉定",
-      payment:1000          
+      payment:1000,
+      message:"没有行业限制，需要办理行业许可证请另外咨询"
     },
     {
       name:"长宁",
-      payment:1000          
+      payment:1500,
+      message:"没有行业限制，需要办理行业许可证请另外咨询"
     }    
   ]    
 }
@@ -328,15 +336,189 @@ var licenseLists = [
 //  }
 //];
 
-
 var assuranceLists = [
   {name: '社保+公积金开户', type: "account",  payment: 500},
   {name: '社保+公积金每月代缴', type: "fees", period: "6", periodName: "半年", payment: 120},
   {name: '社保+公积金每月代缴', type: "fees", period: "12", periodName: "一年", payment: 240}
 ];
 
+/*
+var FinanceLists = [
+  {
+    financeType: 'zero',
+    financeTypeName: '零申报套餐',
+    version:'new',    
+    default: true,
+    brenchmark: 79,
+    selects:[
+      {
+        name:'period',
+        options:[
+          {
+            name:'6个月',
+            value:'6'
+          },
+          {
+            name:'12个月',
+            value:'12'
+          }
+        ]
+      }
+    ]        
+  },
+  {
+    financeType: 'common',
+    financeTypeName: '普通行业套餐',
+    version:'2.0',    
+    default: false,    
+    brenchmark: 179,
+    selects:[
+      {
+        name:'period',
+        options:[
+          {
+            label:'6个月',
+            value:'6'
+          },
+          {
+            label:'12个月',
+            value:'12'
+          }
+        ]
+      },
+      {
+        name:'income',
+        label:"选择年收入",
+        options:[
+          {
+            label:'&le;100万',
+            payment:'179',
+            name:'lte100'
+          },        
+          {
+            label:'101万－499万',
+            payment:'379',
+            name:'101to499'
+          },
+          {
+            label:'&ge;500万',
+            payment:'579',
+            name:'gte500'
+            
+          }
+        ]
+      },
+      {
+        name:'certificate',
+        label:"选择凭证量",        
+        options:[
+          {
+            label:'&le;120张',
+            payment:'179'
+          },        
+          {
+            label:'&le;300张',
+            payment:'379'
+          },
+          {
+            label:'&gt;300张',
+            payment:'579'
+          }          
+        ]
+      }
+    ]
+    
+  }
+];
+*/
 
 var financeLists = [
+  {
+    financeType: 'zero',
+    financeTypeName: '零申报套餐',
+    version: '2.0',
+    default: true,
+    brenchmark: 79,
+    selects: {
+      period: {
+        name: 'period',
+        options: [
+          {
+            name: '6个月',
+            value: '6'
+          },
+          {
+            name: '12个月',
+            value: '12'
+          }
+        ]
+      }
+    }
+  },
+  {
+    financeType: 'primary',
+    financeTypeName: '普通行业套餐',
+    version:'2.0',    
+    default: false,    
+    brenchmark: 179,
+    selects:{
+      period: {
+        name:'period',
+        options:[
+          {
+            label:'6个月',
+            value:'6'
+          },
+          {
+            label:'12个月',
+            value:'12'
+          }
+        ]
+      },
+      income: {
+        name:'income',
+        label:"选择年收入",
+        options:[
+          {
+            label:'≤100万',
+            payment:'179',
+            name:'lte100'          
+          },        
+          {
+            label:'101万－499万',
+            payment:'379',
+            name:'101to499'                
+          },
+          {
+            label:'≥500万',
+            payment:'579',
+            name:'gte500'
+          }
+        ]
+      },
+      certificate: {
+        name:'certificate',
+        label:"选择凭证量",        
+        options:[
+          {
+            label:'≤120张',
+            payment:'179',
+            name:'lte120'
+          },        
+          {
+            label:'≤300张',
+            payment:'379',
+            name:'lte379'
+          },
+          {
+            label:'＞300张',
+            payment:'579',
+            name:'gt579'
+          }          
+        ]
+      }
+    }
+  },  
   {
     financeType: 'common',
     financeTypeName:  '一般纳税人',
@@ -485,6 +667,7 @@ var bookkeepingLists = [
     ]
   }
 ];
+
 
 var businessTypeLists = [
   {num: 0, name: '管理类'},

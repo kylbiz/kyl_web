@@ -63,7 +63,7 @@ Meteor.publish('getIndustrySmall', function(industryBig) {
 
 
 Meteor.publish('financeTypeLists', function() {
-  return FinanceLists.find();
+  return FinanceLists.find({version:"2.0"});
 })
 
 

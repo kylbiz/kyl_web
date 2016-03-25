@@ -36,6 +36,18 @@
 
 
 <template name="FinanceHandle">
+<style>
+.detail-list .board-right .placeholder {
+    min-width: 110px;
+}  
+.highlight {
+  color: #d33e37;
+  margin-right: 4px;
+}
+.divide-segement {
+  margin-bottom: 10px;
+}
+</style>
  <div class="ui modal photo hint1">
 <i class="close icon"></i>
 <!--  <div class="header">Header</div>-->
@@ -62,24 +74,66 @@
         
           <div>
             <div class="placeholder">选择套餐：</div>
-            <div class="selects" id="packpage">
+            <div class="selects selection" id="packpage">
               <ul>
-                <li class="active" data-combo="1">零申报套餐</li>
-                <li data-combo="2">普通行业套餐</li>
+                <li class="active" data-type="zero" data-payment="79">零申报套餐</li>
+                <li data-type="primary" data-payment="179">普通行业套餐</li>
               </ul>
             </div>
           </div>
-        
+          {{#unless isZero }}
+          <div>
+            <div class="placeholder">选择年收入：</div>
+            <div class="selects selection" id="income">
+              <ul>
+               {{#each $mapped income.options}}
+                      {{#if $first}}
+                           <li class="active" data-key={{name}} data-payment={{payment}}>{{label}}</li>                      
+                         {{else}}
+                           <li data-key={{name}} data-payment={{payment}}>{{label}}</li>                             
+                      {{/if}}
+               {{/each}}
+<!--
+                <li data-payment="379">101万－499万</li>
+                <li data-payment="579">&ge;500万</li>   
+-->               
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="placeholder">选择凭证量：</div>
+            <div class="selects selection" id="certificate">
+              <ul>
+                {{#each $mapped certificate.options}}
+                      {{#if $first}}
+                           <li class="active" data-key={{name}} data-payment={{payment}}>{{label}}</li>                      
+                         {{else}}
+                           <li data-key={{name}} data-payment={{payment}}>{{label}}</li>                             
+                      {{/if}}
+                {{/each}}
+              </ul>
+            </div>
+          </div>                      
+          {{/unless}}            
           <div>
             <div class="placeholder">时间：</div>
-            <div class="selects financePeriod">
+            <div class="selects financePeriod selection" id="dataTimeRange">
               <ul>         
-                  <li data-payment="6">6个月</li>
-                  <li data-payment="12">12个月</li>                  
+                  <li data-range="6" class="active">6个月</li>
+                  <li data-range="12">12个月</li>                  
               </ul>
             </div>
           </div>
         
+          <div class="divide-segement">
+            <div class="placeholder">售价：</div>
+            <div class="selects">
+              <div class="hint1">
+                <span class="oput"><span class="highlight">{{benchmark}}</span>元/月</span>
+              </div>
+            </div>
+          </div>   
+                  
           <div>
             <div class="placeholder">您将获得：</div>
             <div class="selects">

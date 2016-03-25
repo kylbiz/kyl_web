@@ -238,10 +238,10 @@
 <!--			  {{#if RegistrationList.services}}-->
 				<div>
 					<div class="placeholder">选择区域：</div>
-					<div class="selects zoneSelect">
+					<div class="selects zoneSelect" id="zoneSelect">
 						<ul>
 							{{#each RegistrationList.services}}
-    							<li data-payment="{{payment}}" data-message="{{message}}">{{name}}</li>							    
+    							<li payment="{{payment}}" message="{{message}}">{{name}}</li>							    
 							{{/each}}
 						</ul>
 					</div>
@@ -259,7 +259,8 @@
 				<div class="oput">
 					<div class="key">注意：</div>
 					<div class="value">
-						没有行业限制，需要办理行业许可证请另行咨询
+<!--						没有行业限制，需要办理行业许可证请另行咨询-->
+            {{notify}}
 					</div>
 				</div>      
 
@@ -267,7 +268,7 @@
 					<div class="price">
 						<span class="key">费用：</span>		
 						<span class="holder">
-							￥<span id="moneyAmount">{{RegistrationList.price}}</span>
+							￥<span id="moneyAmount">{{amount}}</span>
 						</span>元	
 					</div>
 <!--

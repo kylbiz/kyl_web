@@ -153,13 +153,16 @@ Template.RegistrationHandle.events({
   "click #buy": function(event, template) {
     if (Meteor.userId()) {
       var zone = $('.zoneSelect li.active').html();
-      var cnProductTypeName = $(".typeName.active").find("a").html() || "公司注册";
+     // var cnProductTypeName = $(".typeName.active").find("a").html() || "公司注册";      
+      var cnProductTypeName = $(".typeSelect li.active").text();
       if (zone && cnProductTypeName) {
         var services = [];
         var productType = '公司注册';
         var productTypeName = cnProductTypeName;
         var moneyAmount = $("#moneyAmount").html();
         var baseService = $("#baseService").html();
+        var message = Session.get("notify");
+        
         if (zone && baseService && productTypeName && moneyAmount) {
           services = [{
             productType: productType,
@@ -171,7 +174,8 @@ Template.RegistrationHandle.events({
               scale: 1,
               zone: zone,
               servicesContains: [{
-                name: baseService
+                name: baseService,
+                message: message
               }]
             }]
           }];

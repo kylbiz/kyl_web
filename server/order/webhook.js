@@ -38,8 +38,8 @@ HTTP.methods({
     var checkStr = appId + appSecret + timestamp;
     var checkSign = CryptoJS.MD5(checkStr).toString()
 
-    if(checkSign == sign) {      
-      var openid = body.transaction_id || "";        
+    if(checkSign == sign) {
+      var openid = body.transaction_id || "";
       var payed = false;
       var transaction_type = body.transaction_type;
       var tradeSuccess = body.tradeSuccess || false;
@@ -47,7 +47,7 @@ HTTP.methods({
       log('transaction_type = ' + transaction_type);
 
       var temp_paylog = PayLogs.findOne({openid: openid});
-      if(!temp_paylog 
+      if(!temp_paylog
         || !temp_paylog.hasOwnProperty("payed")
         || temp_paylog.payed === true) {
         log("webhook: not allowed to update pay logs for parameters illegal", data);
@@ -139,7 +139,10 @@ HTTP.methods({
         };
       }
 
-      return 'success';     
+      // 通知相关人员有新的订单
+      SMSSend.orderNotice(openid, 'KYLPC');
+
+      return 'success';
     } else {
       return 'fail';
     }

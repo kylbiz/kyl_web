@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "mycrawl": {
-      "version": "0.1.2",
+      "version": "https://registry.npm.taobao.org/mycrawl/download/mycrawl-0.1.2.tgz",
       "dependencies": {
         "async": {
-          "version": "1.5.2"
+          "version": "https://registry.npm.taobao.org/async/download/async-1.5.2.tgz"
         },
         "cheerio": {
-          "version": "0.19.0",
+          "version": "https://registry.npm.taobao.org/cheerio/download/cheerio-0.19.0.tgz",
           "dependencies": {
             "css-select": {
               "version": "1.0.0",
@@ -50,7 +50,7 @@
                   "version": "https://registry.npm.taobao.org/readable-stream/download/readable-stream-1.1.13.tgz",
                   "dependencies": {
                     "core-util-is": {
-                      "version": "1.0.2"
+                      "version": "https://registry.npm.taobao.org/core-util-is/download/core-util-is-1.0.2.tgz"
                     },
                     "isarray": {
                       "version": "0.0.1"
@@ -77,32 +77,32 @@
               }
             },
             "lodash": {
-              "version": "3.10.1"
+              "version": "https://registry.npm.taobao.org/lodash/download/lodash-3.10.1.tgz"
             }
           }
         },
         "request": {
-          "version": "2.69.0",
+          "version": "https://registry.npm.taobao.org/request/download/request-2.69.0.tgz",
           "dependencies": {
             "aws-sign2": {
               "version": "0.6.0"
             },
             "aws4": {
-              "version": "1.2.1",
+              "version": "https://registry.npm.taobao.org/aws4/download/aws4-1.2.1.tgz",
               "dependencies": {
                 "lru-cache": {
-                  "version": "2.7.3"
+                  "version": "https://registry.npm.taobao.org/lru-cache/download/lru-cache-2.7.3.tgz"
                 }
               }
             },
             "bl": {
-              "version": "1.0.3",
+              "version": "https://registry.npm.taobao.org/bl/download/bl-1.0.3.tgz",
               "dependencies": {
                 "readable-stream": {
-                  "version": "2.0.5",
+                  "version": "https://registry.npm.taobao.org/readable-stream/download/readable-stream-2.0.5.tgz",
                   "dependencies": {
                     "core-util-is": {
-                      "version": "1.0.2"
+                      "version": "https://registry.npm.taobao.org/core-util-is/download/core-util-is-1.0.2.tgz"
                     },
                     "inherits": {
                       "version": "2.0.1"
@@ -111,7 +111,7 @@
                       "version": "0.0.1"
                     },
                     "process-nextick-args": {
-                      "version": "1.0.6"
+                      "version": "https://registry.npm.taobao.org/process-nextick-args/download/process-nextick-args-1.0.6.tgz"
                     },
                     "string_decoder": {
                       "version": "0.10.31"
@@ -135,7 +135,7 @@
               }
             },
             "extend": {
-              "version": "3.0.0"
+              "version": "https://registry.npm.taobao.org/extend/download/extend-3.0.0.tgz"
             },
             "forever-agent": {
               "version": "0.6.1"
@@ -144,16 +144,16 @@
               "version": "https://registry.npm.taobao.org/form-data/download/form-data-1.0.0-rc3.tgz"
             },
             "har-validator": {
-              "version": "2.0.6",
+              "version": "https://registry.npm.taobao.org/har-validator/download/har-validator-2.0.6.tgz",
               "dependencies": {
                 "chalk": {
-                  "version": "1.1.1",
+                  "version": "https://registry.npm.taobao.org/chalk/download/chalk-1.1.1.tgz",
                   "dependencies": {
                     "ansi-styles": {
                       "version": "2.1.0"
                     },
                     "escape-string-regexp": {
-                      "version": "1.0.4"
+                      "version": "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.4.tgz"
                     },
                     "has-ansi": {
                       "version": "https://registry.npm.taobao.org/has-ansi/download/has-ansi-2.0.0.tgz",
@@ -177,7 +177,7 @@
                   }
                 },
                 "commander": {
-                  "version": "2.9.0",
+                  "version": "https://registry.npm.taobao.org/commander/download/commander-2.9.0.tgz",
                   "dependencies": {
                     "graceful-readlink": {
                       "version": "1.0.1"
@@ -185,7 +185,7 @@
                   }
                 },
                 "is-my-json-valid": {
-                  "version": "2.13.0",
+                  "version": "https://registry.npm.taobao.org/is-my-json-valid/download/is-my-json-valid-2.13.0.tgz",
                   "dependencies": {
                     "generate-function": {
                       "version": "2.0.0"
@@ -207,17 +207,17 @@
                   }
                 },
                 "pinkie-promise": {
-                  "version": "2.0.0",
+                  "version": "https://registry.npm.taobao.org/pinkie-promise/download/pinkie-promise-2.0.0.tgz",
                   "dependencies": {
                     "pinkie": {
-                      "version": "2.0.4"
+                      "version": "https://registry.npm.taobao.org/pinkie/download/pinkie-2.0.4.tgz"
                     }
                   }
                 }
               }
             },
             "hawk": {
-              "version": "3.1.3",
+              "version": "https://registry.npm.taobao.org/hawk/download/hawk-3.1.3.tgz",
               "dependencies": {
                 "hoek": {
                   "version": "2.16.3"
@@ -234,7 +234,7 @@
               }
             },
             "http-signature": {
-              "version": "1.1.1",
+              "version": "https://registry.npm.taobao.org/http-signature/download/http-signature-1.1.1.tgz",
               "dependencies": {
                 "assert-plus": {
                   "version": "0.2.0"
@@ -246,24 +246,24 @@
                       "version": "1.0.2"
                     },
                     "json-schema": {
-                      "version": "0.2.2"
+                      "version": "https://registry.npm.taobao.org/json-schema/download/json-schema-0.2.2.tgz"
                     },
                     "verror": {
-                      "version": "1.3.6"
+                      "version": "https://registry.npm.taobao.org/verror/download/verror-1.3.6.tgz"
                     }
                   }
                 },
                 "sshpk": {
-                  "version": "1.7.4",
+                  "version": "https://registry.npm.taobao.org/sshpk/download/sshpk-1.7.4.tgz",
                   "dependencies": {
                     "asn1": {
                       "version": "0.2.3"
                     },
                     "dashdash": {
-                      "version": "1.13.0",
+                      "version": "https://registry.npm.taobao.org/dashdash/download/dashdash-1.13.0.tgz",
                       "dependencies": {
                         "assert-plus": {
-                          "version": "1.0.0"
+                          "version": "https://registry.npm.taobao.org/assert-plus/download/assert-plus-1.0.0.tgz"
                         }
                       }
                     },
@@ -271,7 +271,7 @@
                       "version": "0.1.0"
                     },
                     "tweetnacl": {
-                      "version": "0.13.3"
+                      "version": "https://registry.npm.taobao.org/tweetnacl/download/tweetnacl-0.13.3.tgz"
                     },
                     "jodid25519": {
                       "version": "1.0.2"
@@ -293,10 +293,10 @@
               "version": "5.0.1"
             },
             "mime-types": {
-              "version": "2.1.10",
+              "version": "https://registry.npm.taobao.org/mime-types/download/mime-types-2.1.10.tgz",
               "dependencies": {
                 "mime-db": {
-                  "version": "1.22.0"
+                  "version": "https://registry.npm.taobao.org/mime-db/download/mime-db-1.22.0.tgz"
                 }
               }
             },
@@ -304,10 +304,10 @@
               "version": "1.4.7"
             },
             "oauth-sign": {
-              "version": "0.8.1"
+              "version": "https://registry.npm.taobao.org/oauth-sign/download/oauth-sign-0.8.1.tgz"
             },
             "qs": {
-              "version": "6.0.2"
+              "version": "https://registry.npm.taobao.org/qs/download/qs-6.0.2.tgz"
             },
             "stringstream": {
               "version": "0.0.5"

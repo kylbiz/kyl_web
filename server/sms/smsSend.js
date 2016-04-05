@@ -1,5 +1,7 @@
 SMSSend = {};
 
+SMSSend.persons = ['13815070011', '15821414578'];
+
 SMSSend.getParams = function () {
   var config = {
     appId: '8a48b5514a9e4570014a9f1ac45b0115',
@@ -79,24 +81,26 @@ SMSSend.orderNotice = function (orderOpenId, host) {
     return false;
   }
 
-  productName = '';
+  var productName = '';
   orders.forEach(function (order) {
     if (!productName) {
       productName = order.productType;
+    } else {
+      productName += "+" + order.productType;
     }
-    productName += "+" + productType;
   });
+  var customerName = orders[0].addressInfo.receiver;
+  var customerPhone = orders[0].addressInfo.phone;
 
-
-
-  var phones = ['13815070011', '15821414578'];
+  var phones = SMSSend.persons;
   phones.forEach(function (phone) {
-    SMSSend.send(phone, [productName, orderOpenId, {"KYLWX": "开业啦微信端", "KYLWAP": "开业啦移动端", "KYLPC": "开业啦PC端"}[host] || host], 'notice-order');
+    SMSSend.send(phone, [productName, customerName, customerPhone, {"KYLWX": "开业啦微信端", "KYLWAP": "开业啦移动端", "KYLPC": "开业啦PC端"}[host] || host], 'notice-order');
   });
 }
 
 Meteor.methods({
   smsSend: function () {
-    SMSSend.send('18521595051', ['你NB', '我知道'], 'verify-code');
+    // SMSSend.send('18521595051', ['你NB', '我知道'], 'verify-code');
+    // SMSSend.orderNotice('1111', 'KYLWAP');
   }
 });

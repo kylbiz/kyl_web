@@ -1,6 +1,6 @@
 SMSSend = {};
 
-SMSSend.persons = ['13815070011', '15821414578'];
+SMSSend.persons = ['13815070011', '15821414578', '18516222787'];
 
 SMSSend.getParams = function () {
   var config = {

@@ -89,22 +89,25 @@ Meteor.methods({
             }
             moneyAmount += money;
             var servicedetail = shoplist.servicedetail || shoplist.servicename;
-            title.push(servicedetail);
+            // var servicedetail = shoplist.servicename;
+            title.push(shoplist.servicename);
 
             relationIdLists.push(shoplist.relationId);
           });
 
-          var _title_temp = title.toString().slice(0, 130).replace(/\+/g, "|") || "开业啦创业服务";
+          var _title_temp = '开业啦产品：' + title.toString().slice(0, 130).replace(/\+/g, "|") || "开业啦创业服务";
+
+          console.log("_title_temp", _title_temp)
 
           //--------------------------------------
-          moneyAmount = moneyAmount * 100; // use cents 
-         
+          moneyAmount = moneyAmount * 100; // use cents
+
           var sign = CryptoJS.MD5(appId + _title_temp + moneyAmount + out_trade_no + appSecret).toString(); //商品信息hash值，32位小写，含义和生成方式见下文
           var optional = {
             relationIdLists: relationIdLists.toString(),
             invoice: invoice
           };
-          
+
           var options = {
             title: _title_temp,
             amount: moneyAmount,

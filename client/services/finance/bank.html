@@ -10,7 +10,7 @@
 
 
 <template name="BankMenu">
-  <div class="menu-screen" style="background-image:url(/images/menu/menu-caiwu.jpg)">  
+  <div class="menu-screen" style="background-image:url(/images/menu/menu-caiwu.jpg)">
   </div>
   <div class="site-wrapper oMenu">
     {{> serviceList}}
@@ -30,8 +30,8 @@
   </style>
   <div class="tab-content menuTab">
     <div class="tab-pane active">
-      <ul class="financeTypeList">        
-        <li class="typeName"><a href="/finance">财务代理</a></li>        
+      <ul class="financeTypeList">
+        <li class="typeName"><a href="/finance">财务代理</a></li>
         <li class="divide">|</li>
         <li class=" typeName active"><a href="/bank">银行开户</a></li>
 <!--
@@ -41,7 +41,7 @@
       </ul>
     </div>
   </div>
-</template>  
+</template>
 
 <template name="BankHandle">
   <div class="main clearfix" id="oTopTarget">
@@ -56,32 +56,32 @@
           <div class="placeholder">选择开户行：</div>
           <div class="selects banklist">
             <ul>
-              <li class="active">中国银行</li>
-              <li>招商银行</li> 
-              <li>上海银行</li>                                    
+              {{#each $mapped banks}}
+                <li class="{{#if $first}}active{{/if}}" data-payment="{{payment}}">{{bank}}</li>
+              {{/each}}
             </ul>
           </div>
-        </div> 
+        </div>
 				<div class="put" style="margin-top:50px">
 					<div class="placeholder">您将获得：</div>
 					<div class="selects">
 					<span class="oput">银行开户许可证明、开户许可证<a class="overlook" href="#">点击查看</a></span>
 					</div>
-				</div>              
+				</div>
         <div class="base-info">
           <div class="price">
             <div class="key">费用：</div>
-            <span class="holder">￥<span id="payment">200</span></span>元
+            <span class="holder">￥<span id="payment">{{pay}}</span></span>元
           </div>
         </div>
-        <div class="ui message error" id="bankError" style="display:none"></div> 
+        <div class="ui message error" id="bankError" style="display:none"></div>
         <div class="one">
           <a class="ui button" id="buy" href="javascript:void(0)">购买</a>
         </div>
       </div>
     </div>
   </div>
-</template>  
+</template>
 
 <template name="BankDescription">
 	<div class="dist-content site-wrapper">
@@ -142,9 +142,9 @@
 				</div>
 			</div>
 		</div>
-			
-	</div>	
-	
+
+	</div>
+
 	<div class="dist-content">
 		<div class="module our-promise">
 			<div class="main-title">我们的服务承诺</div>
@@ -181,12 +181,12 @@
 							<p>无其他隐形收费</p>
 							<p>服务不成功全额退款保障</p>
 						</div>
-					</div>										
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="dist-content site-wrapper">
 		<div class="module">
 			<div class="main-title">常见问题</div>
@@ -235,7 +235,7 @@
 				</div>
 			</div>
 		</div>
-		
+
     <div class="module button-container">
       <a href="#oTopTarget">
       <button class="backto" type="button">

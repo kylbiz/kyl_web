@@ -5,14 +5,14 @@
 
 
 <template name="FinanceMenu">
-    <div class="menu-screen" style="background-image:url(/images/menu/menu-caiwu.jpg)"></div>  
+    <div class="menu-screen" style="background-image:url(/images/menu/menu-caiwu.jpg)"></div>
     <div class="site-wrapper oMenu">
       {{> serviceList}}
       {{> FinanceTypeList}}
   </div>
 </template>
 
-  
+
 <template name="FinanceTypeList">
   <style type="text/css">
   .financeTypeList li {
@@ -22,7 +22,7 @@
   <div class="tab-content menuTab">
     <div class="tab-pane active">
       <ul class="financeTypeList">
-        <li class="typeName active"><a href="/finance">财务代理</a></li>       
+        <li class="typeName active"><a href="/finance">财务代理</a></li>
         <li class="divide">|</li>
         <li class=" typeName"><a href="/bank">银行开户</a></li>
 <!--
@@ -32,14 +32,14 @@
       </ul>
     </div>
   </div>
-</template>  
+</template>
 
 
 <template name="FinanceHandle">
 <style>
 .detail-list .board-right .placeholder {
     min-width: 110px;
-}  
+}
 .highlight {
   color: #d33e37;
   margin-right: 4px;
@@ -54,7 +54,7 @@
   <div class="content">
       <img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/financeHint01.jpg">
   </div>
-</div>	  
+</div>
 <div class="ui modal photo hint2">
 <i class="close icon"></i>
 <!--  <div class="header">Header</div>-->
@@ -71,13 +71,18 @@
       </div>
       <div class="board-right">
         <div class="box">
-        
+
           <div>
             <div class="placeholder">选择套餐：</div>
             <div class="selects selection" id="packpage">
               <ul>
-                <li class="active" data-type="zero" data-payment="79">零申报套餐</li>
-                <li data-type="primary" data-payment="179">普通行业套餐</li>
+                {{#each $mapped financeAgent}}
+                  {{#if $first}}
+                  <li class="active" data-type="{{name}}">{{label}}</li>
+                  {{else}}
+                  <li data-type="{{name}}">{{label}}</li>
+                  {{/if}}
+                {{/each}}
               </ul>
             </div>
           </div>
@@ -86,17 +91,13 @@
             <div class="placeholder">选择年收入：</div>
             <div class="selects selection" id="income">
               <ul>
-               {{#each $mapped income.options}}
+               {{#each $mapped income.items}}
                       {{#if $first}}
-                           <li class="active" data-key={{name}} data-payment={{payment}}>{{label}}</li>                      
+                           <li class="active" data-key={{name}} data-payment={{value}}>{{label}}</li>
                          {{else}}
-                           <li data-key={{name}} data-payment={{payment}}>{{label}}</li>                             
+                           <li data-key={{name}} data-payment={{value}}>{{label}}</li>
                       {{/if}}
                {{/each}}
-<!--
-                <li data-payment="379">101万－499万</li>
-                <li data-payment="579">&ge;500万</li>   
--->               
               </ul>
             </div>
           </div>
@@ -104,27 +105,32 @@
             <div class="placeholder">选择凭证量：</div>
             <div class="selects selection" id="certificate">
               <ul>
-                {{#each $mapped certificate.options}}
+                {{#each $mapped certificate.items}}
                       {{#if $first}}
-                           <li class="active" data-key={{name}} data-payment={{payment}}>{{label}}</li>                      
+                           <li class="active" data-key={{name}} data-payment={{value}}>{{label}}</li>
                          {{else}}
-                           <li data-key={{name}} data-payment={{payment}}>{{label}}</li>                             
+                           <li data-key={{name}} data-payment={{value}}>{{label}}</li>
                       {{/if}}
                 {{/each}}
               </ul>
             </div>
-          </div>                      
-          {{/unless}}            
+          </div>
+          {{/unless}}
           <div>
             <div class="placeholder">时间：</div>
             <div class="selects financePeriod selection" id="dataTimeRange">
-              <ul>         
-                  <li data-range="6" class="active">6个月</li>
-                  <li data-range="12">12个月</li>                  
+              <ul>
+                {{#each $mapped period.items}}
+                  {{#if $first}}
+                    <li data-range="{{value}}" class="active">{{label}}</li>
+                  {{else}}
+                    <li data-range="{{value}}">{{label}}</li>
+                  {{/if}}
+                {{/each}}
               </ul>
             </div>
           </div>
-        
+
           <div class="divide-segement">
             <div class="placeholder">售价：</div>
             <div class="selects">
@@ -132,8 +138,8 @@
                 <span class="oput"><span class="highlight">{{benchmark}}</span>元/月</span>
               </div>
             </div>
-          </div>   
-                  
+          </div>
+
           <div>
             <div class="placeholder">您将获得：</div>
             <div class="selects">
@@ -152,7 +158,7 @@
               <span class="holder">￥<span>{{totalAmount}}</span></span>元
             </div>
           </div>
-          
+
         <div class="one">
           <a class="ui button" id="buy" href="javascript:void(0)">购买</a>
         </div>
@@ -162,8 +168,8 @@
   </div>
   {{ > FinanceDescription }}
   {{> LoginModal}}
-  {{> RegisterModal}}   
-</template>  
+  {{> RegisterModal}}
+</template>
 
 <template name="FinanceDescription">
 	<div class="dist-content site-wrapper">
@@ -226,9 +232,9 @@
 				</div>
 			</div>
 		</div>
-			
-	</div>	
-	
+
+	</div>
+
 	<div class="dist-content">
 		<div class="module our-promise">
 			<div class="main-title">我们的服务承诺</div>
@@ -265,12 +271,12 @@
 							<p>无其他隐形收费</p>
 							<p>服务不成功全额退款保障</p>
 						</div>
-					</div>										
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="dist-content site-wrapper">
 		<div class="module">
 			<div class="main-title">常见问题</div>
@@ -309,10 +315,10 @@
 理、归纳、做账完毕后下月邮寄回客户。
 上海银行（卢湾支行）新市北路号；
 						</div>
-					</div>					
+					</div>
 				</div>
 				<div class="olist-container right">
-					
+
 					<div class="list">
 						<div class="title">6、除了代理费，还有其他费用吗？</div>
 						<div class="answer">答：目前开业啦并没有其他额外收费。注：税务局会收一个50元/年的官方C
@@ -324,7 +330,7 @@ A证书费（法人一证通）和820年/的金税盘费用。这两个是国家
 						<div class="answer">答：不绝对，你开给别人的发票（收入票）必需是当月票当月报，别人开给你
 的发票当年即可。
 						</div>
-					</div>  
+					</div>
 					<div class="list">
 						<div class="title">8、一般纳税人和小规模纳税人有什么区别？</div>
 						<div class="answer">答：一般纳税人与小规模纳税人的区别主要体现在开票上，一般纳税人可以开
@@ -334,12 +340,12 @@ A证书费（法人一证通）和820年/的金税盘费用。这两个是国家
 的纳税人,年应征增值税销售额在50万元以上的;除前项规定以外的纳税人,年应
 税销售额在80万元以上的。
 						</div>
-					</div>                                  
-										
+					</div>
+
 				</div>
 			</div>
 		</div>
-		
+
     <div class="module button-container">
       <a href="#oTopTarget">
       <button class="backto" type="button">

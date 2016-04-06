@@ -3,11 +3,11 @@ Template.registration.onRendered(function(){
     $('.ui.modal.photo')
     .modal('show')
   });
-  Session.set("productType","sepical");
+  Session.set("productType","special");
 
   Session.set("amount",1);
   var notice = RegistrationLists.findOne().services[0].message;
-  Session.set("notify",notice); 
+  Session.set("notify",notice);
 });
 
 Template.contractusHandle.onRendered(function(){
@@ -22,8 +22,8 @@ Template.RegistrationHandle.helpers({
     return RegistrationLists.find();
   },
   "RegistrationList":function(){
-    var type = Session.get("productType");
-    return RegistrationLists.findOne({type: type});
+    var name = Session.get("productType");
+    return RegistrationLists.findOne({name: name});
   },
   "amount": function() {
     return Session.get("amount");
@@ -36,21 +36,21 @@ Template.RegistrationHandle.helpers({
 Template.RegistrationHandle.events({
   "click .typeSelect li":function(e){
     var self = $(e.currentTarget);
-    var type = self.data("type"); 
+    var type = self.data("type");
     self.addClass("active").siblings().removeClass("active");
-    Session.set("productType",type);    
-    $("#zoneSelect li").first().addClass("active").siblings().removeClass("active");    
-    var payment = RegistrationLists.findOne({type: type}).services[0].payment;
-    var notice = RegistrationLists.findOne({type: type}).services[0].message;    
-    Session.set("amount",payment); 
-    Session.set("notify",notice);     
+    Session.set("productType",type);
+    $("#zoneSelect li").first().addClass("active").siblings().removeClass("active");
+    var payment = RegistrationLists.findOne({name: type}).services[0].payment;
+    var notice = RegistrationLists.findOne({name: type}).services[0].message;
+    Session.set("amount",payment);
+    Session.set("notify",notice);
   },
-  "click #zoneSelect li":function(e){    
-    var self = $(e.currentTarget);    
-    var payment = $(self).attr("payment");      
-    Session.set("amount",payment);     
-    
+  "click #zoneSelect li":function(e){
+    var self = $(e.currentTarget);
+    var payment = $(self).attr("payment");
+    Session.set("amount",payment);
+
     var notice = $(self).attr("message");
-    Session.set("notify",notice);    
+    Session.set("notify",notice);
   }
 })

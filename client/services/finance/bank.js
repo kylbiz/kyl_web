@@ -9,9 +9,22 @@ Template.BankMenu.onRendered(function(){
 });
 //----------------------------------------------------------------------
 
+Template.BankHandle.helpers({
+	banks: function () {
+		return BankLists.find().fetch();
+	},
+	pay: function () {
+		if (!Session.get('payment')) {
+			Session.set('payment', BankLists.find().fetch()[0].payment);
+		}
+		return Session.get('payment');
+	}
+});
+
 Template.BankHandle.events({
 	"click .banklist li": function (event, template) {
 		$(event.currentTarget).addClass('active').siblings().removeClass("active");
+		Session.set('payment', $(event.currentTarget).data('payment') || 0);
 	}
 })
 

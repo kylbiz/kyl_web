@@ -5,7 +5,7 @@
 		{{#if otherHandle}}
 		{{> contractusHandle}}
 		{{else}}
-		{{> RegistrationHandle}} 
+		{{> RegistrationHandle}}
 		{{/if}}
 	</div>
 	{{> RegistrationDescription}}
@@ -16,7 +16,7 @@
 		<div class="content">
 			<img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/rective_photo.jpg">
 		</div>
-	</div>	  
+	</div>
 </template>
 
 <template name="contractusHandle">
@@ -57,19 +57,19 @@
 				-->
 			</div>
 			<div class="one">
-				<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2536027577&site=qq&menu=yes"><button class="ui button" id="buy" type="button">咨询客服</button></a>		
-			</div>				
+				<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2536027577&site=qq&menu=yes"><button class="ui button" id="buy" type="button">咨询客服</button></a>
+			</div>
 		</div>
 	</div>
-</div>		
+</div>
 </template>
 
 
 <template name="RegistrationMenu">
-	<div class="menu-screen" style="background-image:url(/images/menu/top-bar.jpg)">  
+	<div class="menu-screen" style="background-image:url(/images/menu/top-bar.jpg)">
 	</div>
 	<div class="site-wrapper oMenu">
-		{{> serviceList}} 
+		{{> serviceList}}
 
 		{{> RegistrationTypeList}}
 	</div>
@@ -162,9 +162,9 @@
 				{{else}}
 				<li class="typeName" name="wenhua"><a href="/registration/wenhua">文化传媒公司</a></li>
 				{{/if}}
-				<li class="divide">|</li> 
+				<li class="divide">|</li>
 
-				{{#if $eq productTypeName "jianzhu"}}                     
+				{{#if $eq productTypeName "jianzhu"}}
 				<li class="typeName active" name="jianzhu"><a href="/registration/jianzhu">建筑设计公司</a></li>
 				{{else}}
 				<li class="typeName" name="jianzhu"><a href="/registration/jianzhu">建筑设计公司</a></li>
@@ -197,7 +197,7 @@
 				{{else}}
 				<li class="typeName" name="yiliao"><a href="/registration/yiliao">医疗公司</a></li>
 				{{/if}}
-				<li class="divide">|</li>	
+				<li class="divide">|</li>
 
 				{{#if $eq productTypeName "qita"}}
 				<li class="others active" name="qita"><a href="/registration/qita">其他公司</a></li>
@@ -215,7 +215,7 @@
 	<div class="main clearfix" id="oTopTarget">
 		<div class="board-left">
 			<div class="photo">
-				<img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/registration.png" alt="公司注册">						
+				<img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/registration.png" alt="公司注册">
 			</div>
 		</div>
 		<div class="board-right">
@@ -223,14 +223,14 @@
         <div>
           <div class="placeholder">选择类型：</div>
           <div class="selects typeSelect">
-           
+
             <ul>
               {{#each $mapped RegistrationLists}}
                 {{#if $first}}
-                    <li data-type="{{type}}" class="active">{{name}}</li>                       
+                    <li data-type="{{name}}" class="active">{{label}}</li>
                     {{else}}
-                    <li data-type="{{type}}">{{name}}</li>                           
-                {{/if}}                  
+                    <li data-type="{{name}}">{{label}}</li>
+                {{/if}}
               {{/each}}
             </ul>
           </div>
@@ -241,7 +241,7 @@
 					<div class="selects zoneSelect" id="zoneSelect">
 						<ul>
 							{{#each RegistrationList.services}}
-    							<li payment="{{payment}}" message="{{message}}">{{name}}</li>							    
+    							<li payment="{{payment}}" message="{{message}}">{{zone}}</li>
 							{{/each}}
 						</ul>
 					</div>
@@ -262,14 +262,14 @@
 <!--						没有行业限制，需要办理行业许可证请另行咨询-->
             {{notify}}
 					</div>
-				</div>      
+				</div>
 
-		 <div class="base-info" style="margin-top:50px">			
+		 <div class="base-info" style="margin-top:50px">
 					<div class="price">
-						<span class="key">费用：</span>		
+						<span class="key">费用：</span>
 						<span class="holder">
 							￥<span id="moneyAmount">{{amount}}</span>
-						</span>元	
+						</span>元
 					</div>
 <!--
 					<div class="time">
@@ -278,7 +278,7 @@
 					</div>
 				-->
 			</div>
-			
+
       <div>
         <span id="baseService" class="hidden">三章三证</span>
         <div class="placeholder">您将获得：</div>
@@ -286,7 +286,7 @@
           <span class="oput">新版营业执照、新版营业执照副本、公司章、法人章、财务章<a class="overlook" href="#">点击查看</a></span>
         </div>
       </div>
-							
+
 			<div class="ui message error" id="orderError" style="display:none"></div>
 			<div class="one">
 				<button class="ui button" id="buy" type="button">购买</button>
@@ -336,7 +336,7 @@
 								<li>选择行业类型确定公司基本信息</li>
 								<li>股东亲自签字确认</li>
 								<li>核名失败则须重新核名</li>
-							</ol>											
+							</ol>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -346,7 +346,7 @@
 								<li>确认企业信息（地址信息，高管信息，经营范围，股东出资比例，公司法人监事身份证明，公司章程）</li>
 								<li>股东亲自签字确认</li>
 								<li>预约到工商局窗口递交申请资料</li>
-							</ol>		        			
+							</ol>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -354,17 +354,17 @@
 							<ol>
 								<li>备案刻章</li>
 								<li>办理企业信息代码证（原三证三章)</li>
-							</ol>				
+							</ol>
 							<div>
 								原三章三证：<br>营业执照、组织机构代码证、税务登记证、<br>
 								法人章、财务章、公章
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>
 				<div class="hint-container">
 					公司取名，材料准备，股东亲自往返工商税务和银行，等待审核，按照官方流程个人办理大概耗时<span>1-2个月</span>！
-				</div>				
+				</div>
 			</div>
 		</div>
 		<div class="module">
@@ -374,11 +374,11 @@
 					<div class="box">
 						<div class="center">
 							<img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/icon-1.png" alt="">
-						</div>				
+						</div>
 						<div class="doc">
 							<p>1 想一个好名字</p>
 							<p>在线提交公司注册申请</p>
-						</div>		
+						</div>
 					</div>
 				</div>
 				<div class="col-sm-4">
@@ -398,7 +398,7 @@
 							<img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/icon-3.png" alt="">
 						</div>
 						<div class="doc">
-							<p>3 领取企业信息代码证<br>（原三证三章）             
+							<p>3 领取企业信息代码证<br>（原三证三章）
 							</p>
 							<p>SF即刻送达</p>
 						</div>
@@ -409,14 +409,14 @@
 				开业啦服务最快只需核名后<span>7个工作日</span>,相比官方流程个人办理帮您节省<span>60%</span>的时间!
 			</div>
 		</div>
-		
+
 		<div class="module">
 			<div class="main-title">公司注册后续服务</div>
 			<div class="problem-box clearfix">
 				<div class="col-sm-4">
 					<div class="box">
 						<div class="icon icon-1"></div>
-						<div class="title">银行开户</div>		        
+						<div class="title">银行开户</div>
 					</div>
 					<div class="hint">
 						<p>开通网银</p>
@@ -427,11 +427,11 @@
 				<div class="col-sm-4">
 					<div class="box">
 						<div class="icon icon-2"></div>
-						<div class="title">核税</div>		        
+						<div class="title">核税</div>
 					</div>
 					<div class="hint">
 						<p>获得企业发票章</p>
-						<p>确认发票类型</p>        
+						<p>确认发票类型</p>
 					</div>
 				</div>
 				<div class="col-sm-4">
@@ -442,12 +442,12 @@
 					<div class="hint">
 						<p>登录地方企业信用信息</p>
 						<p>公式系统登记企业信息</p>
-					</div>		      
+					</div>
 				</div>
 			</div>
-		</div>	
-	</div>	
-	
+		</div>
+	</div>
+
 	<div class="dist-content">
 		<div class="module our-promise">
 			<div class="main-title">我们的服务承诺</div>
@@ -484,12 +484,12 @@
 							<p>无其他隐形收费</p>
 							<p>服务不成功全额退款保障</p>
 						</div>
-					</div>										
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="dist-content site-wrapper registration">
 		<div class="module">
 			<div class="main-title">常见问题</div>
@@ -541,7 +541,7 @@
 							<div class="answer">答：法定代表人可以是股东，也可以外聘。法定代表人建议是公司创始人或
 								者团体核心人员，对公司方向及发展具有决定权和决策权。
 							</div>
-						</div>	
+						</div>
 					</div>
 					<div class="olist-container right">
 						<div class="list">
@@ -560,7 +560,7 @@
 								1）输入企业字号，可以查出上海企业名字重名企业名单，从而协助您提交工
 								商名字，提高通过几率。<br>
 								2）输入提交审核的名字，可以查到工商审核状态及进度。<br>
-								3）同时也可以查自己注册企业的执照办理进度及状态。          
+								3）同时也可以查自己注册企业的执照办理进度及状态。
 							</div>
 						</div>
 						<div class="list">
@@ -582,7 +582,7 @@
 							<div class="answer">答：可以的，企业注册好了，营业执照上面涉及到的事项，都可以变更哦，增
 								加股东需办理股东变更即可。
 							</div>
-						</div>																														
+						</div>
 					</div>
 				</div>
 			</div>

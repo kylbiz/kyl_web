@@ -8,7 +8,8 @@ Orders = new Meteor.Collection('Orders');
 
 Registration = new Meteor.Collection('Registration');
 
-RegistrationLists = new Meteor.Collection('RegistrationLists');
+// RegistrationLists = new Meteor.Collection('RegistrationLists');
+RegistrationLists = new Meteor.Collection('CompanyRegist'); //(与微信统一)替换成新的注册产品 by air_cc @2016-04-05
 
 UserAddress = new Meteor.Collection('UserAddress');
 
@@ -22,7 +23,11 @@ Business1 = new Meteor.Collection('Business1');
 
 BusinessTypeLists = new Meteor.Collection('BusinessTypeLists');
 
-FinanceLists = new Meteor.Collection('FinanceLists');
+// FinanceLists = new Meteor.Collection('FinanceLists');
+FinanceLists = new Meteor.Collection('FinanceAgent'); //(与微信统一)替换成新的财务产品 by air_cc @2016-04-05
+
+// 银行开户
+BankLists = new Meteor.Collection('BankLists_wechat'); //
 
 BookkeepingLists = new Meteor.Collection('BookkeepingLists');
 
@@ -32,9 +37,7 @@ ShopCart = new Meteor.Collection('ShopCart');
 
 CompanySearchRecords = new Meteor.Collection('CompanySearchRecords');
 
-
 Seo = new Meteor.Collection('Seo');
-
 
 Orders.helpers({
 	createTimeL: function () {
@@ -67,7 +70,7 @@ ShopCart.helpers({
     var typeNameFlag = this.typeNameFlag;
     var productTypeL = 'registration.png';
     switch(typeNameFlag) {
-      case 'registration': 
+      case 'registration':
         productTypeL = 'registration.png';
         break;
       case 'finance':
@@ -75,7 +78,7 @@ ShopCart.helpers({
       case 'bookkeeping':
         productTypeL = 'finance.png';
         break;
-      case 'assurance': 
+      case 'assurance':
         productTypeL = 'assurance.png';
         break;
       case 'license':

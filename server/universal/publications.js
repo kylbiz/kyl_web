@@ -28,6 +28,10 @@ Meteor.publish('registrationLists', function() {
   return RegistrationLists.find();
 })
 
+Meteor.publish('bankLists', function () {
+  return BankLists.find();
+})
+
 Meteor.publish('assuranceLists', function() {
   return AssuranceLists.find();
 })
@@ -39,7 +43,6 @@ Meteor.publish('bookkeepingTypeLists', function() {
 Meteor.publish('licenseTypeLists', function() {
   return LicenseLists.find();
 })
-
 
 
 Meteor.publish('getUserAddress', function(userId) {
@@ -63,7 +66,7 @@ Meteor.publish('getIndustrySmall', function(industryBig) {
 
 
 Meteor.publish('financeTypeLists', function() {
-  return FinanceLists.find({version:"2.0"});
+  return FinanceLists.find({});
 })
 
 

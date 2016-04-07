@@ -4,3 +4,6 @@
 # Meteor package
 .meteor/local
 .meteor/meteorite
+
+# dist file
+dist/

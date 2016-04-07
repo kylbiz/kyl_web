@@ -35,7 +35,7 @@ SMSSend.getParams = function () {
 SMSSend.send = function (phone, message, tmplStr, callback) {
   var templateId = {
       'verify-code': "11559",
-      'notice-order': '76390',
+      'notice-order': '78412',
     }[tmplStr] || '';
 
   var params = SMSSend.getParams();

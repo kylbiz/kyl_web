@@ -107,11 +107,7 @@
               "version": "https://registry.npm.taobao.org/bl/download/bl-1.0.3.tgz",
               "dependencies": {
                 "readable-stream": {
-<<<<<<< HEAD
                   "version": "https://registry.npm.taobao.org/readable-stream/download/readable-stream-2.0.6.tgz",
-=======
-                  "version": "https://registry.npm.taobao.org/readable-stream/download/readable-stream-2.0.5.tgz",
->>>>>>> c2d752c575f8a05346dc88cf949d2e1c668c0fdc
                   "dependencies": {
                     "core-util-is": {
                       "version": "https://registry.npm.taobao.org/core-util-is/download/core-util-is-1.0.2.tgz"
@@ -165,11 +161,7 @@
                       "version": "https://registry.npm.taobao.org/ansi-styles/download/ansi-styles-2.2.1.tgz"
                     },
                     "escape-string-regexp": {
-<<<<<<< HEAD
                       "version": "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz"
-=======
-                      "version": "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.4.tgz"
->>>>>>> c2d752c575f8a05346dc88cf949d2e1c668c0fdc
                     },
                     "has-ansi": {
                       "version": "https://registry.npm.taobao.org/has-ansi/download/has-ansi-2.0.0.tgz",
@@ -287,11 +279,7 @@
                       "version": "https://registry.npm.taobao.org/jsbn/download/jsbn-0.1.0.tgz"
                     },
                     "tweetnacl": {
-<<<<<<< HEAD
                       "version": "https://registry.npm.taobao.org/tweetnacl/download/tweetnacl-0.14.3.tgz"
-=======
-                      "version": "https://registry.npm.taobao.org/tweetnacl/download/tweetnacl-0.13.3.tgz"
->>>>>>> c2d752c575f8a05346dc88cf949d2e1c668c0fdc
                     },
                     "jodid25519": {
                       "version": "https://registry.npm.taobao.org/jodid25519/download/jodid25519-1.0.2.tgz"

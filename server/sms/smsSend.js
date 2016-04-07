@@ -83,10 +83,12 @@ SMSSend.orderNotice = function (orderOpenId, host) {
 
   var productName = '';
   orders.forEach(function (order) {
-    if (!productName) {
-      productName = order.productType;
-    } else {
-      productName += "+" + order.productType;
+    if (order.productType) {
+      if (!productName) {
+        productName = order.productType;
+      } else {
+        productName += "+" + order.productType;
+      }
     }
   });
   var customerName = orders[0].addressInfo.receiver;

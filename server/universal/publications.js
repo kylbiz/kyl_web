@@ -66,7 +66,7 @@ Meteor.publish('getIndustrySmall', function(industryBig) {
 
 
 Meteor.publish('financeTypeLists', function() {
-  return FinanceLists.find({});
+  return FinanceLists.find({'basicType.name': 'base'});
 })
 
 

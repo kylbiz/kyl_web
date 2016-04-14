@@ -95,9 +95,11 @@ Meteor.methods({
             relationIdLists.push(shoplist.relationId);
           });
 
-          var _title_temp = '开业啦产品：' + title.toString().slice(0, 130).replace(/\+/g, "|") || "开业啦创业服务";
+          // var _title_temp = '开业啦产品：' + title.toString().slice(0, 130).replace(/\+/g, "|") || "开业啦创业服务";
+          // var _title_temp = '开业啦产品: ' + title.toString().slice(0, 15) || "开业啦创业服务";
+          var _title_temp = '开业啦创业服务产品';
 
-          console.log("_title_temp", _title_temp)
+          console.log("_title_temp", _title_temp);
 
           //--------------------------------------
           moneyAmount = moneyAmount * 100; // use cents

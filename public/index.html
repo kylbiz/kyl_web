@@ -1,29 +1,10 @@
 <html>
 <head>
 <title>开业啦（上海）网络技术有限公司</title>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
 <link rel="stylesheet" href="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/index.min.css">
 <link rel="icon" sizes="16x16 32x32" href="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/favicon.ico?v=2">
-
-<script charset="utf-8" src="http://wpa.b.qq.com/cgi/wpa.php"></script> 
-<script src="http://s11.cnzz.com/z_stat.php?id=1254585758&web_id=1254585758" language="JavaScript"></script>
-
-<script src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/js/index.min.js"></script>
-
-<script src="/js/js-cookie.js"></script>
-<script src="/js/cookie.js"></script>
-
-<script>
-//百度统计代码
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?f4df32bf7c1ad9545679696a5806e7ad";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
 <meta property="og:title" content="开业啦-自助式极速注册，从未有过">
 <meta property="twitter:url" content="http://www.kyl.biz/">
 <meta property="og:url" content="http://www.kyl.biz/"> 
@@ -714,8 +695,39 @@ var _hmt = _hmt || [];
     </div>
   </div>
   </footer> 
+
+
+  <script charset="utf-8" src="http://wpa.b.qq.com/cgi/wpa.php"></script> 
+  <script src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/js/index.min.js"></script>
+  <script src="/js/js-cookie.js"></script>
+<!--   <script src="/js/cookie.js"></script> -->
+  <script>
+  //百度统计代码
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?f4df32bf7c1ad9545679696a5806e7ad";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  <script>
+  // cookie
+    $(document).ready(function() {
+      var username = Cookies.get("username");
+      if (username) {
+        $("header .username").text(username);
+        $(".usercenterL").show();
+        $(".accountL").hide();
+      } else {
+        $(".accountL").show();
+        $(".usercenterL").hide();
+      }
+    });
+  </script>
   <script type="text/javascript">
   BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4000663192, selector: 'BizQQWPA'});
-  </script></body>
+  </script>
 
+  </body>
 </html>

@@ -122,6 +122,8 @@ HTTP.methods({
           } else {
             log('no such pay logs or pay log information error');
           }
+          // 通知相关人员有新的订单
+          SMSSend.orderNotice(openid, 'KYLPC');
         } else {
           PayLogs.update({
             openid: openid
@@ -138,10 +140,6 @@ HTTP.methods({
           });
         };
       }
-
-      // 通知相关人员有新的订单
-      SMSSend.orderNotice(openid, 'KYLPC');
-
       return 'success';
     } else {
       return 'fail';

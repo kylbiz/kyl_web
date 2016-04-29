@@ -40,6 +40,8 @@ SMSSend.send = function (phone, message, tmplStr, callback) {
 
   var params = SMSSend.getParams();
 
+  log("send sms to " + phone + '@' + moment(new Date()).format("YYYYMMDDHHmmss"));
+
   HTTP.call("POST", params.url,
     {
       "data":{

@@ -2,33 +2,7 @@ Meteor.startup(function() {
   accountConfig(); //账号系统相关设置
   supportInfoInit(); // 辅助信息
   productInit(); // 产品数据
-  var fs = Npm.require('fs');
-  var filePath = process.env.PWD + '/public/' + 'Reg.html';
-  fs.writeFileSync(filePath,  SSR.render("registration"), 'utf-8');
-
-  //动态生成
-  var html = SSR.render("registration");
-  WebApp.connectHandlers.use("/hello", function(req, res, next) {
-    res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
-    res.end(html);
-   });
-  //静态读取文件
-  WebApp.connectHandlers.use("/hello1", function(req, res, next) {
-  var fs = Npm.require('fs');
-  var buf = new Buffer(1024);
-  res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
-  var fd = process.env.PWD + '/public/Reg.html';
-  // console.log(fd);
-  fs.readFile(fd, function(err, data){
-    if (err){
-       console.log(err);
-    }
-    res.end(data);
-  });
-
-});
-
-});
+})
 
 function productInit() {
   var companyRegist = [
@@ -1150,3 +1124,5 @@ var FinanceLists = [
 //     ]
 //   }
 // ];
+
+

@@ -1,4 +1,4 @@
-// Template.RegistrationTypeList.onRendered(function() {
+Template.RegistrationTypeList.onRendered(function() {
   Session.set("others", false);
   setTimeout(function() {
     var productTypeName = Session.get("productTypeName");
@@ -6,64 +6,64 @@
       Session.set("others", true);
     }
   }, 100)
-// });
+});
 
 
-// Template.registration.helpers({
-//   "otherHandle": function() {
-//     return Session.get("others");
-//   }
-// })
+Template.registration.helpers({
+  "otherHandle": function() {
+    return Session.get("others");
+  }
+})
 
-// Template.RegistrationHandle.helpers({
-//   "imgURI": function() {
-//     var productTypeName = Session.get("productTypeName");
-//
-//     var imgURI = 'registration';
-//     switch (productTypeName) {
-//       case 'year2016':
-//         imgURI += '14.jpg';
-//         break;
-//       case 'touzi':
-//         imgURI += '15.png';
-//         break;
-//       case 'jisu':
-//         imgURI += '04.jpg';
-//         break;
-//       case 'dianshang':
-//         imgURI += '05.jpg';
-//         break;
-//       case 'jiaoyu':
-//         imgURI += '06.jpg';
-//         break;
-//       case 'jinrong':
-//         imgURI += '07.jpg';
-//         break;
-//       case 'yidong':
-//         imgURI += '08.jpg';
-//         break;
-//       case 'wenhua':
-//         imgURI += '09.jpg';
-//         break;
-//       case 'shangwu':
-//         imgURI += '10.jpg';
-//         break;
-//       case 'jianzhu':
-//         imgURI += '11.jpg';
-//         break;
-//       case 'yiliao':
-//         imgURI += '12.jpg';
-//         break;
-//       case 'qita':
-//         imgURI += '13.jpg';
-//         break;
-//       default:
-//         imgURI += '04.jpg';
-//         break;
-//     }
-//     return imgURI;
-//   }
-// })
+Template.RegistrationHandle.helpers({
+  "imgURI": function() {
+    var productTypeName = Session.get("productTypeName");
+
+    var imgURI = 'registration';
+    switch (productTypeName) {
+      case 'year2016':
+        imgURI += '14.jpg';
+        break;
+      case 'touzi':
+        imgURI += '15.png';
+        break;
+      case 'jisu':
+        imgURI += '04.jpg';
+        break;
+      case 'dianshang':
+        imgURI += '05.jpg';
+        break;
+      case 'jiaoyu':
+        imgURI += '06.jpg';
+        break;
+      case 'jinrong':
+        imgURI += '07.jpg';
+        break;
+      case 'yidong':
+        imgURI += '08.jpg';
+        break;
+      case 'wenhua':
+        imgURI += '09.jpg';
+        break;
+      case 'shangwu':
+        imgURI += '10.jpg';
+        break;
+      case 'jianzhu':
+        imgURI += '11.jpg';
+        break;
+      case 'yiliao':
+        imgURI += '12.jpg';
+        break;
+      case 'qita':
+        imgURI += '13.jpg';
+        break;
+      default:
+        imgURI += '04.jpg';
+        break;
+    }
+    return imgURI;
+  }
+})
 
 //----------------------------------------------------------------------
 
@@ -130,20 +130,20 @@ Template.RegistrationHandle.events({
 });
 //----------------------------------------------------------------------
 
-// Template.RegistrationHandle.helpers({
-//   "paymentL": function() {
-//     return Session.get("payment");
-//   },
-//   "messageL": function() {
-//     return Session.get("message");
-//   }
-// });
-//
-// Template.RegistrationTypeList.helpers({
-//   productTypeName: function() {
-//     return Session.get("productTypeName");
-//   }
-// })
+Template.RegistrationHandle.helpers({
+  "paymentL": function() {
+    return Session.get("payment");
+  },
+  "messageL": function() {
+    return Session.get("message");
+  }
+});
+
+Template.RegistrationTypeList.helpers({
+  productTypeName: function() {
+    return Session.get("productTypeName");
+  }
+})
 
 
 //----------------------------------------------------------------------
@@ -153,7 +153,7 @@ Template.RegistrationHandle.events({
   "click #buy": function(event, template) {
     if (Meteor.userId()) {
       var zone = $('.zoneSelect li.active').html();
-     // var cnProductTypeName = $(".typeName.active").find("a").html() || "公司注册";
+     // var cnProductTypeName = $(".typeName.active").find("a").html() || "公司注册";      
       var cnProductTypeName = $(".typeSelect li.active").text();
       if (zone && cnProductTypeName) {
         var services = [];
@@ -162,7 +162,7 @@ Template.RegistrationHandle.events({
         var moneyAmount = $("#moneyAmount").html();
         var baseService = $("#baseService").html();
         var message = Session.get("notify");
-
+        
         if (zone && baseService && productTypeName && moneyAmount) {
           services = [{
             productType: productType,

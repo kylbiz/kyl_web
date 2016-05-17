@@ -13,7 +13,7 @@ less
 meteorhacks:npm
 momentjs:moment
 
-npm-container
+# npm-container
 http
 jparker:crypto-md5
 sacha:spin
@@ -23,3 +23,10 @@ cfs:http-methods
 manuelschoebel:ms-seo
 # spiderable
 ongoworks:security
+
+
+npm-container
+webapp
+meteorhacks:ssr
+raix:handlebar-helpers
+session

@@ -1,0 +1,29 @@
+<html>
+<head>
+	<script src="../assets/bower_components/ddp.js/src/ddp.js"></script>
+	<script src="../assets/bower_components/q/q.js"></script>
+	<script src="../assets/bower_components/asteroid/dist/asteroid.browser.js"></script>
+	<script src="../assets/bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<body><ul id="posts">not login  aaa</ul></body>
+
+<script type="text/javascript">
+	var current_meteor_userid = window.localStorage.getItem('Meteor.userId');
+	// document.write(current_meteor_userid);
+	// connect to our application
+	var meteor_backend_app = new Asteroid("127.0.0.1:3000");
+
+	meteor_backend_app.subscribe('userInfos');
+
+	var searchCollection = meteor_backend_app.getCollection('users');
+	var current_meteor_email = searchCollection.reactiveQuery({_id:current_meteor_userid});
+
+	current_meteor_email.on('change', function() {
+	  var result;
+	  $('#posts').empty();
+	  result = current_meteor_email.result;
+	  console.log(result[0].username)
+	  $('#posts').append('<li>' + result[0].username + '</li>');
+	});
+</script>
+</html>

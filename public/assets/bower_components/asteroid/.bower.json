@@ -1,0 +1,45 @@
+{
+  "name": "asteroid",
+  "version": "0.7.0",
+  "homepage": "https://github.com/mondora/asteroid",
+  "authors": [
+    "Paolo Scanferla <paolo.scanferla@mondora.com>"
+  ],
+  "description": "A lightweight and flexible alternative to Meteor's client-side framework",
+  "main": "dist/asteroid.browser.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "meteor",
+    "asteroid",
+    "ddp"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "demo",
+    "gulpfile.js"
+  ],
+  "dependencies": {
+    "ddp.js": "~0.6.0",
+    "q": "1.0.1"
+  },
+  "_release": "0.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.0",
+    "commit": "5e39028b86b545a2f8abc51225fa07bbf5aaedd9"
+  },
+  "_source": "https://github.com/mondora/asteroid.git",
+  "_target": "0.7.0",
+  "_originalSource": "asteroid",
+  "_direct": true
+}

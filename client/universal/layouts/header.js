@@ -16,6 +16,7 @@ Template.header.onCreated(function() {
       var username = user.username;
       console.log("This set username")
       Cookies.set('username', username);
+      Session.set('username', username);
       console.log("username: " + username)
     } else {
       Cookies.remove("username");

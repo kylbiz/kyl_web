@@ -1,4 +1,5 @@
 Template.registration.onRendered(function(){
+  alert('registration');
   $(".overlook").click(function(){
     $('.ui.modal.photo')
     .modal('show')
@@ -16,22 +17,37 @@ Template.contractusHandle.onRendered(function(){
     .modal('show')
   });
 });
-
-Template.RegistrationHandle.helpers({
-  "RegistrationLists": function() {
-    return RegistrationLists.find();
-  },
-  "RegistrationList":function(){
-    var name = Session.get("productType");
-    return RegistrationLists.findOne({name: name});
-  },
-  "amount": function() {
-    return Session.get("amount");
-  },
-  "notify": function() {
-    return Session.get("notify");
-  }
-})
+// var postsData = [
+//   {
+//     name: 'Introducing Telescope',
+//     label: 'http://sachagreif.com/introducing-telescope/'
+//   },
+//   {
+//     name: 'Meteor',
+//     label: 'http://meteor.com'
+//   },
+//   {
+//     name: 'The Meteor Book',
+//     label: 'http://themeteorbook.com'
+//   }
+// ];
+// Template.RegistrationHandle.helpers({
+//   // "RegistrationLists": function() {
+//   //   return RegistrationLists.find();
+//   // },
+//   "RegistrationLists": postsData,
+//
+//   "RegistrationList":function(){
+//     var name = Session.get("productType");
+//     return RegistrationLists.findOne({name: name});
+//   },
+//   "amount": function() {
+//     return Session.get("amount");
+//   },
+//   "notify": function() {
+//     return Session.get("notify");
+//   }
+// })
 
 Template.RegistrationHandle.events({
   "click .typeSelect li":function(e){

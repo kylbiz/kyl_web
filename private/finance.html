@@ -1,0 +1,52 @@
+{{> head }}
+<body>
+
+
+  {{> header}}
+  {{ > FinanceMenu }}
+  {{> FinanceHandle}}
+
+{{> footer }}
+
+
+</body>
+<script type="text/javascript">
+	var current_meteor_userid = window.localStorage.getItem('Meteor.userId');
+	// document.write(current_meteor_userid);
+	// connect to our application
+	// 使用服务器publish的功能
+	var meteor_backend_app = new Asteroid("127.0.0.1:3000");
+
+	meteor_backend_app.subscribe('userInfos');
+
+	var searchCollection = meteor_backend_app.getCollection('users');
+	var current_meteor_email = searchCollection.reactiveQuery({_id:current_meteor_userid});
+	current_meteor_email.on('change', function() {
+	  var result;
+	  // $('#navigationBar').empty();
+	  result = current_meteor_email.result;
+	  console.log(result[0].username)
+	  $('#navigationBar').append('<li>' + result[0].username + '</li>');
+	});
+
+
+
+
+
+
+
+
+
+
+	$(document).ready(function(){
+    // Hide the Modal
+    $("#overlook1").click(function(){
+        $("#hint1").modal("show");
+    	});
+	 $("#overlook2").click(function(){
+	    $("#hint2").modal("show");
+		});
+	});	
+	
+
+</script>

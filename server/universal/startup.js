@@ -2,7 +2,41 @@ Meteor.startup(function() {
   accountConfig(); //账号系统相关设置
   supportInfoInit(); // 辅助信息
   productInit(); // 产品数据
-})
+  var fs = Npm.require('fs');
+  var filePath = process.env.PWD + '/public/' + 'Reg.html';
+  fs.writeFileSync(filePath,  SSR.render("registration"), 'utf-8');
+
+  //动态生成
+  WebApp.connectHandlers.use("/registration", function(req, res, next) {
+    res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
+    res.end(SSR.render("registration"));
+   });
+
+  WebApp.connectHandlers.use("/finance", function(req, res, next) {
+    res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
+    res.end(SSR.render("finance"));
+   });
+  WebApp.connectHandlers.use("/bank", function(req, res, next) {
+    res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
+    res.end(SSR.render("bank"));
+   });
+  //静态读取文件
+  WebApp.connectHandlers.use("/registration_s", function(req, res, next) {
+  var fs = Npm.require('fs');
+  var buf = new Buffer(1024);
+  res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
+  var fd = process.env.PWD + '/public/Reg.html';
+  // console.log(fd);
+  fs.readFile(fd, function(err, data){
+    if (err){
+       console.log(err);
+    }
+    res.end(data);
+  });
+
+});
+
+});
 
 function productInit() {
   var companyRegist = [
@@ -1124,5 +1158,3 @@ var FinanceLists = [
 //     ]
 //   }
 // ];
-
-

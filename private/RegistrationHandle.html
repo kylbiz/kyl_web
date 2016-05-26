@@ -1,0 +1,138 @@
+<div class="main clearfix" id="oTopTarget">
+
+		<div class="board-left">
+			<div class="photo">
+				<img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/registration.png" alt="公司注册">
+			</div>
+		</div>
+		<div class="board-right">
+			<div class="box auto">
+        <div>
+          <div class="placeholder">选择类型：</div>
+          <div class="selects typeSelect">
+            <ul id="typeSelector">
+            </ul>
+          </div>
+        </div>
+		
+			  <!-- {{#if RegistrationList.services}} -->
+				<div>
+					<div class="placeholder">选择区域：</div>
+					<div class="selects zoneSelect" id="zoneSelect">
+
+
+					</div>
+					<div class="ui message error" id="zoneError" style="display:none"></div>
+				</div>
+				<!-- {{/if}} -->
+<!--
+				<div class="oput">
+					<div class="key">备注：</div>
+					<div class="value">
+						{{messageL}}
+					</div>
+				</div>
+-->
+				<div class="oput">
+					<br/>
+					<br/>
+
+					<div class="key">注意：</div>
+					<div class="value">
+						<!--没有行业限制，需要办理行业许可证请另行咨询-->
+            			<!-- {{notify}} -->
+
+					</div>
+				</div>
+
+		 <div class="base-info" style="margin-top:50px">
+					<div class="price">
+						<span class="key">费用：</span>
+						<span class="holder">
+							<span id="moneyAmount"></span>
+						</span>元
+					</div>
+<!--
+					<div class="time">
+						<div class="key">注册时长</div>
+						<div class="value">快至17个工作日</div>
+					</div>
+				-->
+			</div>
+
+      <div>
+        <span id="baseService" class="hidden">三章三证</span>
+
+        <div class="placeholder">您将获得：</div>
+        <div class="selects">
+          <span class="oput">新版营业执照、新版营业执照副本、公司章、法人章、财务章<a class="overlook" id="checkPic" href="#">点击查看</a></span>
+        </div>
+      </div>
+
+			<div class="ui message error" id="orderError" style="display:none"></div>
+			<div class="one">
+				<button class="ui button" id="buy" type="button">购买</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <script src="./js/regJs.js"></script> -->
+<script type="text/javascript">
+    // alert('aaa');
+				 
+			for (var i = {{RegistrationLists}}.length - 1; i >= 0; i--) {
+				var $x1 = {{RegistrationLists}}[i];
+				var $label = $x1.label,
+					$payment = 0,
+					$message = '',
+					$regions = '';
+				var $labelLi = document.createElement('li');
+				var $serviceList = document.createElement('ul');
+
+				$labelLi.innerHTML = $label;
+				$("#typeSelector").append($labelLi);
+
+				for(var j = {{RegistrationLists}}[i].services.length - 1; j >= 0; j--){
+					var $zoneInfo = document.createElement('li');
+					$message = {{RegistrationLists}}[i].services[j].message;
+					$payment = {{RegistrationLists}}[i].services[j].payment;
+					$regions = {{RegistrationLists}}[i].services[j].zone;
+					$zoneInfo.innerHTML = $regions;
+					$zoneInfo.setAttribute('message', $message);
+					$zoneInfo.setAttribute('payment', $payment);
+					$serviceList.appendChild($zoneInfo);
+				}
+				// $("#typeSelector").append($labelLi);
+				// console.log($regions);
+				$('#zoneSelect').append($serviceList);
+			}
+
+
+
+			$('#zoneSelect ul').hide();
+			$("#typeSelector li").click(function(){
+
+				$(this).addClass("active");
+				$(this).siblings().removeClass("active");
+				$('#zoneSelect').children().removeClass('active');
+				$("#moneyAmount").text('');
+				$('.oput .value').text('');
+
+				$("#typeSelector li").each(function(index){
+					if($(this).hasClass("active")){
+						console.log(index);
+						$('#zoneSelect ul').hide().eq(index).show();
+					}
+				});
+			});
+
+			$("#zoneSelect li").click(function(){
+				$(this).addClass("active");
+				$(this).siblings().removeClass("active");
+				$("#moneyAmount").text($(this).attr('payment'));
+				$('.oput .value').text($(this).attr('message'));
+
+			});
+		</script>
+<!-- {{> LoginModal}}
+{{> RegisterModal}} -->

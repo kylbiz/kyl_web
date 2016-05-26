@@ -1,4 +1,4 @@
-
+//
 Template.license.onRendered(function() {
   var licenseType = $(".licensetype li.active").attr("data-license") || "";
   Session.set("licenseType", licenseType);
@@ -25,23 +25,26 @@ Template.license.onRendered(function() {
       Session.set("payment", payment);
     }, 100);
 
-  })
+  });
 
   $(".ui.modal").on("click",".licenszone li",function(){
     $(this).addClass("active").siblings().removeClass("active");
     var payment = $(this).attr("data-payment") || 0;
     var zone = $(this).attr("data-zone") || "";
     Session.set("liceseZone", zone);
-    Session.set("payment", payment);    
+    Session.set("payment", payment);
     $("#licenseError").hide();
-  });  
+  });
 })
+
 
 Template.license.helpers({
   "licenseTypeLists": function() {
     var licenseType = Session.get("licenseType") || "urban";
     return  LicenseLists.findOne({type: licenseType});
   },
+  // "licenseTypeLists": postsData,
+
   "paymentL": function() {
     return Session.get("payment") || 0;
   }
@@ -54,10 +57,10 @@ Template.license.events({
     $("#licenseModal").modal({
       onShow: function () {
         if(Session.set("region")) {
-          $("#toggle li").eq(1).addClass("active").siblings().removeClass("active");          
+          $("#toggle li").eq(1).addClass("active").siblings().removeClass("active");
         }
         else {
-          $("#toggle li").eq(0).addClass("active").siblings().removeClass("active"); 
+          $("#toggle li").eq(0).addClass("active").siblings().removeClass("active");
         }
       },
       onApprove: function () {
@@ -96,7 +99,7 @@ Template.license.events({
               } else {
                 Router.go('/shopcart');
               }
-            });  
+            });
 
           } else {
             $("#licenseError").html("请选择区域！");
@@ -106,6 +109,6 @@ Template.license.events({
         }
 
 		  }
-    }).modal('show');      
+    }).modal('show');
  }
 });

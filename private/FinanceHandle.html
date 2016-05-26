@@ -1,0 +1,214 @@
+<style>
+.detail-list .board-right .placeholder {
+    min-width: 110px;
+}
+.highlight {
+  color: #d33e37;
+  margin-right: 4px;
+}
+.divide-segement {
+  margin-bottom: 10px;
+}
+</style>
+<div class="modal fade" id="hint1" role="dialog">
+    <div class="modal-dialog">
+      <img class="img-responsive" src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/financeHint01.jpg" />
+  </div>
+ </div>
+ <div class="modal fade" id="hint2" role="dialog">
+    <div class="modal-dialog">
+      <img class="img-responsive" src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/financeHint02.jpg" />
+  </div>
+ </div>
+
+<!--  <div class="ui modal photo hint1">
+<i class="close icon"></i>
+  <div class="header">Header</div>
+  <div class="content">
+      <img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/financeHint01.jpg">
+  </div>
+</div>
+<div class="ui modal photo hint2">
+<i class="close icon"></i>
+  <div class="header">Header</div>
+  <div class="content">
+      <img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/financeHint02.jpg">
+  </div>
+</div> -->
+  <div class="site-wrapper detail-list" id="oTopTarget">
+    <div class="main clearfix">
+      <div class="board-left">
+        <div class="photo">
+          <img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/finance.jpg" alt="">
+        </div>
+      </div>
+      <div class="board-right">
+        <div class="box">
+
+          <div>
+            <div class="placeholder">选择套餐：</div>
+            <div class="selects selection" id="packpage">
+              <ul>
+                
+              </ul>
+            </div>
+          </div>
+          <!-- {{#unless isZero }} -->
+          <div id="incomeId" class="typeCommon">
+            <div class="placeholder">选择年收入：</div>
+            <div class="selects selection" id="income">
+            </div>
+          </div>
+          <div id="crtId" class="typeCommon">
+            <div class="placeholder">选择凭证量：</div>
+            <div class="selects selection" id="certificate">
+            </div>
+          </div>
+          <!-- {{/unless}} -->
+          <div>
+            <div class="placeholder">时间：</div>
+            <div class="selects financePeriod selection" id="dataTimeRange">
+            </div>
+          </div>
+
+          <div class="divide-segement">
+            <div class="placeholder">售价：</div>
+            <div class="selects">
+              <div class="hint1">
+                <span class="oput"><span class="highlight"></span>元/月</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="placeholder">您将获得：</div>
+            <div class="selects">
+              <div class="hint1">
+                <span class="oput">法人一证通、办税人联系卡（无发票）<a id="overlook1" href="#">点击查看</a></span>
+              </div>
+              <div class="hint2">
+                <span class="oput">法人一证通、办税人联系卡、金税盘、发票章、发票（有发票）<a id="overlook2" href="#">点击查看</a></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="base-info">
+            <div class="price">
+              <div class="key">费用：</div>
+              <span class="holder">￥<span id="totalAmount"></span></span>元
+            </div>
+          </div>
+
+        <div class="one">
+          <a class="ui button" id="buy" href="javascript:void(0)">购买</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    $('#incomeId').hide();
+    $('#crtId').hide();
+
+    // // //zero
+    var $f1 = {{financeAgent}}[0];
+    var $f2 = {{financeAgent}}[1];
+    // alert($f2.opts.annualIncome.label);
+    var $labelLi1 = document.createElement('li');
+    var $labelLi2 = document.createElement('li');
+
+    $labelLi1.innerHTML = $f1.label;
+    $labelLi1.setAttribute('class', 'typeZero active');
+    $('#packpage ul').append($labelLi1);
+
+    $labelLi2.innerHTML = $f2.label;
+    $labelLi2.setAttribute('class', 'typeCommon');
+    $('#packpage ul').append($labelLi2);
+    
+
+    //零申报套餐
+    var $periodList1 = document.createElement('ul');
+    $periodList1.setAttribute('class', 'typeZero');
+    var value,
+        flag = 0;
+    for(var i = $f1.period.items.length-1; i >= 0; i--){
+      var $zoneInfo = document.createElement('li');
+      $zoneInfo.innerHTML = $f1.period.items[i].label;
+      if(flag === 0){
+        $zoneInfo.setAttribute('class', 'active');
+        flag++;
+      }
+      value = $f1.period.items[i].value;
+      $zoneInfo.setAttribute('value', value);
+      $periodList1.appendChild($zoneInfo);
+    }
+
+    $('#dataTimeRange').append($periodList1);
+    $('.highlight').text($f1.payment);
+
+    var $periodList2 = document.createElement('ul');
+    var $incomeList = document.createElement('ul');
+    var $crtNumList = document.createElement('ul');
+
+    // $periodList2.setAttribute('class', 'typeCommon');
+    // alert($f2.opts.annualIncome.items[1].label);
+    // 普通行业套餐
+    for(var j = $f2.opts.annualIncome.items.length-1; j>=0; j--){
+      var $incomeInfo = document.createElement('li');
+      var $crtInfo = document.createElement('li');
+      $incomeInfo.innerHTML = $f2.opts.annualIncome.items[j].label;
+      $incomeInfo.setAttribute('value', $f2.opts.annualIncome.items[j].value);
+      $crtInfo.innerHTML = $f2.opts.certiNum.items[j].label;
+      $crtInfo.setAttribute('value', $f2.opts.certiNum.items[j].value);
+      $incomeList.appendChild($incomeInfo);
+      $crtNumList.appendChild($crtInfo);
+    }
+    $('#income').append($incomeList);
+    $('#certificate').append($crtNumList);
+
+    //标签选择 active
+    $("li").click(function(){
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+    });
+    //套餐选择，格式显示
+    $('#packpage li').click(function(){
+      // $('.typeCommon').show();
+      // alert($(this).hasClass('typeCommon'));
+      // $(this).addClass("active");
+      // $(this).siblings().removeClass("active");
+      $('#incomeId').hide();
+      $('#crtId').hide();
+      if( $(this).hasClass('typeCommon') ){
+        // alert('a');
+        $('.typeCommon').show();
+      }
+    });
+    //价格计算
+    $("#certificate, #income li").click(function(){
+      // alert('a');
+      var crtVal = $("#certificate .active").attr('value'),
+          inVal = $("#income .active").attr('value');
+      $('.highlight').text(crtVal > inVal ? inVal : crtVal);
+      $("#totalAmount").text(
+          $("#dataTimeRange .active").attr('value')*eval($('.highlight').text())
+      )
+    });
+
+    $("#dataTimeRange li").click(function(){
+        // $(this).addClass("active");
+        // alert($(this).index());
+        // $(this).siblings().removeClass("active");
+        $("#totalAmount").text(
+          $("#dataTimeRange .active").attr('value')*eval($('.highlight').text())
+          )
+    });
+
+
+
+  </script>
+
+  {{ > FinanceDescription }}
+  <!-- {{> LoginModal}} -->
+  <!-- {{> RegisterModal}} -->

@@ -1,0 +1,63 @@
+{{> head }}
+<body>
+  {{> header}}
+	{{ > RegistrationMenu }}
+		<div class="site-wrapper detail-list">
+			{{#if otherHandle}}
+					{{> contractusHandle}}
+			{{else}}
+					{{> RegistrationHandle}}
+			{{/if}}
+		</div>
+			{{> RegistrationDescription}}
+
+
+
+	<div class="modal fade" id="businessLicense" role="dialog">
+    <div class="modal-dialog">
+			<img class="img-responsive" src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/main/rective_photo.jpg" />
+
+    </div>
+  </div>
+{{> footer }}
+
+
+</body>
+<script type="text/javascript">
+	var current_meteor_userid = window.localStorage.getItem('Meteor.userId');
+	// document.write(current_meteor_userid);
+	// connect to our application
+	
+	// 使用服务器publish的功能
+	var meteor_backend_app = new Asteroid("127.0.0.1:3000");
+
+	meteor_backend_app.subscribe('userInfos');
+
+	var searchCollection = meteor_backend_app.getCollection('users');
+	var current_meteor_email = searchCollection.reactiveQuery({_id:current_meteor_userid});
+
+	current_meteor_email.on('change', function() {
+	  var result;
+	  // $('#navigationBar').empty();
+	  result = current_meteor_email.result;
+	  console.log(result[0].username)
+	  $('#navigationBar').append('<li>' + result[0].username + '</li>');
+	});
+</script>
+<script>
+// document.write(companyRegist[0].name);
+// alert(companyRegiste[0].name);
+
+$(document).ready(function(){
+    // Hide the Modal
+    $("#checkPic").click(function(){
+        $("#businessLicense").modal("show");
+    });
+});
+
+$("#typeSelector li").first().addClass("active");
+
+// $("#zoneSelect li").first().addClass("active");
+// 
+
+</script>

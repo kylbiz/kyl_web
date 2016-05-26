@@ -1,0 +1,43 @@
+<div class="main clearfix" id="oTopTarget">
+    <div class="board-left">
+      <div class="photo">
+        <img src="http://www-kyl-biz.oss-cn-shanghai.aliyuncs.com/assets/images/bank.jpg" alt="">
+      </div>
+    </div>
+    <div class="board-right">
+      <div class="box">
+        <div class="row-layout">
+          <div class="placeholder">选择开户行：</div>
+          <div class="selects banklist">
+            <ul id="bankSelect">
+              {{#each banks}}
+                <li class="{{#if $first}}active{{/if}}" data-payment="{{payment}}">{{name}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+				<div class="put" style="margin-top:50px">
+					<div class="placeholder">您将获得：</div>
+					<div class="selects">
+					<span class="oput">银行开户许可证明、开户许可证<a class="overlook" id="checkPic" href="#">点击查看</a></span>
+					</div>
+				</div>
+        <div class="base-info">
+          <div class="price">
+            <div class="key">费用：</div>
+            <span class="holder">￥<span id="payment">300</span></span>元
+          </div>
+        </div>
+        <div class="ui message error" id="bankError" style="display:none"></div>
+        <div class="one">
+          <a class="ui button" id="buy" href="javascript:void(0)">购买</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $("#bankSelect li").click(function(){
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+      });
+  </script>

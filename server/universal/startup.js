@@ -5,6 +5,11 @@ Meteor.startup(function() {
   var fs = Npm.require('fs');
   var filePath = process.env.PWD + '/public/' + 'Reg.html';
   fs.writeFileSync(filePath,  SSR.render("registration"), 'utf-8');
+  filePath = process.env.PWD + '/public/' + 'finan.html';
+  fs.writeFileSync(filePath,  SSR.render("finance"), 'utf-8');
+  filePath = process.env.PWD + '/public/' + 'bank.html';
+  fs.writeFileSync(filePath,  SSR.render("bank"), 'utf-8');
+
 
   //动态生成
   WebApp.connectHandlers.use("/registration", function(req, res, next) {
@@ -26,14 +31,36 @@ Meteor.startup(function() {
   var buf = new Buffer(1024);
   res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
   var fd = process.env.PWD + '/public/Reg.html';
-  // console.log(fd);
   fs.readFile(fd, function(err, data){
     if (err){
        console.log(err);
     }
     res.end(data);
   });
-
+});
+  WebApp.connectHandlers.use("/finance_s", function(req, res, next) {
+  var fs = Npm.require('fs');
+  var buf = new Buffer(1024);
+  res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
+  var fd = process.env.PWD + '/public/finan.html';
+  fs.readFile(fd, function(err, data){
+    if (err){
+       console.log(err);
+    }
+    res.end(data);
+  });
+});
+  WebApp.connectHandlers.use("/bank_s", function(req, res, next) {
+  var fs = Npm.require('fs');
+  var buf = new Buffer(1024);
+  res.writeHead(200, {'Content-Type': 'text/html', 'encoding':  'utf-8'});
+  var fd = process.env.PWD + '/public/bank.html';
+  fs.readFile(fd, function(err, data){
+    if (err){
+       console.log(err);
+    }
+    res.end(data);
+  });
 });
 
 });

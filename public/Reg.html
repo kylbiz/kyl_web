@@ -210,7 +210,11 @@
 <!-- <script src="./js/regJs.js"></script> -->
 <script type="text/javascript">
     // alert('aaa');
-				 
+			
+			var meteor_backend_app = new Asteroid("127.0.0.1:3000");
+			var current_meteor_userid = window.localStorage.getItem('Meteor.userId');
+			// console.log(current_meteor_userid)
+		
 			for (var i = [{"name":"hot","label":"郊区","services":[{"zone":"浦东(临港)","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"奉贤","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"松江","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"青浦","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"金山","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"嘉定","payment":500,"message":"不接受金融、投资类，注册资本300万以上请另外咨询"},{"zone":"崇明","payment":500,"message":"不接受贸易、文化娱乐（音乐创作、影视文化）行业"}]},{"name":"downtown","label":"市区","services":[{"zone":"普陀","payment":1000,"message":"不接受教育、培训、金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"虹口","payment":1000,"message":"不接受信息咨询、金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"杨浦","payment":1000,"message":"仅限科技行业，需要办理行业许可证请另外咨询"},{"zone":"长宁","payment":1500,"message":"不接受贸易、金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"浦东(三林)","payment":1000,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"}]},{"name":"special","label":"特价区","services":[{"zone":"松江","payment":1,"message":"仅限文创类"},{"zone":"金山","payment":1,"message":"仅限电商贸易类"}]}].length - 1; i >= 0; i--) {
 				var $x1 = [{"name":"hot","label":"郊区","services":[{"zone":"浦东(临港)","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"奉贤","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"松江","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"青浦","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"金山","payment":500,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"嘉定","payment":500,"message":"不接受金融、投资类，注册资本300万以上请另外咨询"},{"zone":"崇明","payment":500,"message":"不接受贸易、文化娱乐（音乐创作、影视文化）行业"}]},{"name":"downtown","label":"市区","services":[{"zone":"普陀","payment":1000,"message":"不接受教育、培训、金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"虹口","payment":1000,"message":"不接受信息咨询、金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"杨浦","payment":1000,"message":"仅限科技行业，需要办理行业许可证请另外咨询"},{"zone":"长宁","payment":1500,"message":"不接受贸易、金融、投资类，需要办理行业许可证请另外咨询"},{"zone":"浦东(三林)","payment":1000,"message":"不接受金融、投资类，需要办理行业许可证请另外咨询"}]},{"name":"special","label":"特价区","services":[{"zone":"松江","payment":1,"message":"仅限文创类"},{"zone":"金山","payment":1,"message":"仅限电商贸易类"}]}][i];
 				var $label = $x1.label,
@@ -251,7 +255,7 @@
 
 				$("#typeSelector li").each(function(index){
 					if($(this).hasClass("active")){
-						console.log(index);
+						// console.log(index);
 						$('#zoneSelect ul').hide().eq(index).show();
 					}
 				});
@@ -264,6 +268,44 @@
 				$('.oput .value').text($(this).attr('message'));
 
 			});
+
+			$("#buy").click(function(){
+			            // window.location = "/shopcart";		
+				if(current_meteor_userid){
+					var services = [];
+		       // console.log(typeof(services));
+		       var productType = '公司注册';
+		       var moneyAmount = $("#moneyAmount").html();
+		       var zone = $('.zoneSelect li.active').html();
+        	   var baseService = $("#baseService").html();
+        	   var productTypeName = $(".typeSelector li.active").text();
+        	   services = [{
+        	   	userId: current_meteor_userid,
+	            productType: productType,
+	            typeNameFlag: 'registration',
+	            moneyAmount: moneyAmount,
+	            servicesNameList: [{
+	              name: productTypeName + '[' + zone + ']',
+	              money: moneyAmount,
+	              scale: 1,
+	              zone: zone,
+	              servicesContains: [{
+	                name: baseService,
+	                message: 'message'
+	              }]
+	            }]
+	          }];
+	          meteor_backend_app.call('shopcartAdd_s', services, function (err) {			
+			        });
+	          window.location = "/shopcart";
+				}else{
+					alert('请登录');
+				}
+		       
+			});
+			
+
+
 		</script>
 <!-- {{> LoginModal}}
 {{> RegisterModal}} -->

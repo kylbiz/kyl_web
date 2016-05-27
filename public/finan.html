@@ -260,6 +260,8 @@
     </div>
   </div>
   <script type="text/javascript">
+    var meteor_backend_app = new Asteroid("127.0.0.1:3000");
+    var current_meteor_userid = window.localStorage.getItem('Meteor.userId');
 
     $('#incomeId').hide();
     $('#crtId').hide();
@@ -358,6 +360,63 @@
           )
     });
 
+    $("#buy").click(function(){
+        // window.location = "/shopcart";   
+        // console.log($("#packpage li.active").html())
+        if(current_meteor_userid){
+          var services = [];
+          var serviceType = $("#packpage li.active").html();
+          var moneyAmoun = $("#totalAmount").html();
+          var period = $("#dataTimeRange li.active").attr('value');
+
+           if(serviceType == '零申报套餐'){
+            var productTyp = '财务代理';
+            
+            services = [{
+              userId: current_meteor_userid,
+              productType: productTyp,
+              typeNameFlag: 'finance',
+              moneyAmount: moneyAmoun,
+              servicesNameList:[{
+                name: '零申报套餐' + period + '个月',
+                period: period,
+                money: moneyAmoun,
+                scale: 1,
+                servicesContains:[]
+                }]
+              }]
+            // console.log(JSON.stringify(services));
+           meteor_backend_app.call('shopcartAdd_s', services, function (err) {      
+              });
+            window.location = "/shopcart";
+           }else if(serviceType == '普通行业套餐'){
+
+              var incomeVal = $("#income li.active").html();
+              var certNum = $("#certificate li.active").html();
+              var period = $("#dataTimeRange li.active").attr('value');
+              var financeServiceName = "普通行业套餐" + " 年收入" + incomeVal + ",凭证量" + certNum;
+              services=[{
+                userId: current_meteor_userid,
+                typeNameFlag: serviceType,
+                moneyAmount: moneyAmoun,
+                servicesNameList: [{
+                  name: financeServiceName,
+                  annualIncome: incomeVal,
+                  certiNum: certNum,
+                  period: period,
+                  money: incomeVal,
+                  scale: 1,
+                  servicesContains:[],
+                }]
+              }]
+            // console.log(JSON.stringify(services));
+            meteor_backend_app.call('shopcartAdd_s', services, function (err) {      
+              });
+            window.location = "/shopcart";
+           }
+
+         }
+      });
 
 
   </script>

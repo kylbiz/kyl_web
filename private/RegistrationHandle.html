@@ -79,7 +79,11 @@
 <!-- <script src="./js/regJs.js"></script> -->
 <script type="text/javascript">
     // alert('aaa');
-				 
+			
+			var meteor_backend_app = new Asteroid("127.0.0.1:3000");
+			var current_meteor_userid = window.localStorage.getItem('Meteor.userId');
+			// console.log(current_meteor_userid)
+		
 			for (var i = {{RegistrationLists}}.length - 1; i >= 0; i--) {
 				var $x1 = {{RegistrationLists}}[i];
 				var $label = $x1.label,
@@ -120,7 +124,7 @@
 
 				$("#typeSelector li").each(function(index){
 					if($(this).hasClass("active")){
-						console.log(index);
+						// console.log(index);
 						$('#zoneSelect ul').hide().eq(index).show();
 					}
 				});
@@ -133,6 +137,44 @@
 				$('.oput .value').text($(this).attr('message'));
 
 			});
+
+			$("#buy").click(function(){
+			            // window.location = "/shopcart";		
+				if(current_meteor_userid){
+					var services = [];
+		       // console.log(typeof(services));
+		       var productType = '公司注册';
+		       var moneyAmount = $("#moneyAmount").html();
+		       var zone = $('.zoneSelect li.active').html();
+        	   var baseService = $("#baseService").html();
+        	   var productTypeName = $(".typeSelector li.active").text();
+        	   services = [{
+        	   	userId: current_meteor_userid,
+	            productType: productType,
+	            typeNameFlag: 'registration',
+	            moneyAmount: moneyAmount,
+	            servicesNameList: [{
+	              name: productTypeName + '[' + zone + ']',
+	              money: moneyAmount,
+	              scale: 1,
+	              zone: zone,
+	              servicesContains: [{
+	                name: baseService,
+	                message: 'message'
+	              }]
+	            }]
+	          }];
+	          meteor_backend_app.call('shopcartAdd_s', services, function (err) {			
+			        });
+	          window.location = "/shopcart";
+				}else{
+					alert('请登录');
+				}
+		       
+			});
+			
+
+
 		</script>
 <!-- {{> LoginModal}}
 {{> RegisterModal}} -->

@@ -11,7 +11,7 @@
           <div class="selects banklist">
             <ul id="bankSelect">
               {{#each banks}}
-                <li class="{{#if $first}}active{{/if}}" data-payment="{{payment}}">{{name}}</li>
+                <li payment="{{price}}">{{name}}</li>
               {{/each}}
             </ul>
           </div>
@@ -36,8 +36,44 @@
     </div>
   </div>
   <script type="text/javascript">
+    var meteor_backend_app = new Asteroid("127.0.0.1:3000");
+    var current_meteor_userid = window.localStorage.getItem('Meteor.userId');
     $("#bankSelect li").click(function(){
         $(this).addClass("active");
         $(this).siblings().removeClass("active");
       });
+    $("#bankSelect li").click(function(){
+      $(this).siblings().removeClass("active");
+      $(this).addClass("active");
+      $("#payment").html($("#bankSelect li.active").attr("payment"));
+      // console.log($("#bankSelect li.active").attr("payment"));
+
+    })
+    $("#buy").click(function(){
+      if(current_meteor_userid){
+          var services = [];
+          var productType='银行开户'; 
+          var moneyAmount = $("#payment").html();
+          services = [{
+            userId: current_meteor_userid,
+            productType: "银行开户",
+            typeNameFlag: 'bank',
+            moneyAmount: moneyAmount,
+            servicesNameList: [{
+            name: $("#bankSelect li.active").html(),
+            money: moneyAmount,
+            scale: 1,
+            servicesContains:[{
+            }]
+           }]
+          }]
+          // console.log(JSON.stringify(services));
+          meteor_backend_app.call('shopcartAdd_s', services, function (err) {     
+              });
+            window.location = "/shopcart";
+      }else{
+        alert("请登录")
+      }
+
+    })
   </script>

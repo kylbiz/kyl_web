@@ -64,7 +64,7 @@ Meteor.methods({
 			} else {
 				var err = 'service not an array';
 				log(err);
-				callback(err);			
+				callback(err);
 			}
 		}
 		var cartAdd = Async.wrap(CartAdd);
@@ -86,10 +86,12 @@ Meteor.methods({
 				} else {
 					log('remove shopcart item succeed');
 				}
-			});		
-		}	
+			});
+		}
 	}
 })
+
+
 
 //----------------------------------------------------
 

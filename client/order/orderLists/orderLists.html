@@ -1,7 +1,7 @@
 <!-- 订单 -->
 <template name="userOrders">
-  <div class="menu-screen" style="background-image:url(/images/menu/top-bar.jpg)">  
-  </div>   
+  <div class="menu-screen" style="background-image:url(/images/menu/top-bar.jpg)">
+  </div>
   <div class="site-wrapper usercenter user_payment">
     {{> orderDir}}
     <div class="ui grid">
@@ -12,8 +12,8 @@
           <div class="title-bar clearfix">
             <div class="pull-left">我的订单</div>
             <div class="pull-right">
-              <span class="holder">专属客服：</span><span class="space">索薇  </span>
-              <span class="holder">联系电话：</span>400-066-3192
+              <!-- <span class="holder">专属客服：</span><span class="space">  </span> -->
+              <span class="holder">客服电话：</span>021-80376929
             </div>
           </div>
           {{> orderTemp}}
@@ -31,7 +31,7 @@
     <i class="right angle icon divider"></i>
     <div class="active section"><a href="/user/orders">我的订单</a></div>
   </div>
-</template> 
+</template>
 
 <template name="orderMenu">
   <div class="three wide column">
@@ -49,7 +49,7 @@
       </div>
     </div>
   </div>
-</template>  
+</template>
 
 
 <template name="orderTemp">
@@ -62,14 +62,14 @@
           <td class="c3" colspan="2">订单状态</td>
           <td class="c5">交易操作</td>
         </tr>
-        <tr class="divide-32"></tr>   
+        <tr class="divide-32"></tr>
       </thead>
       {{#each orders}}
       {{ > orderItem}}
       {{/each}}
     </table>
   </div>
-</template>  
+</template>
 
 <template name="orderItem">
   <tbody>
@@ -77,8 +77,8 @@
       <td colspan="5" class="code">
         <span class="data">{{createTimeL}}</span>
         <span class="holder">订单号：</span>{{orderId}}
-      </td>                 
-    </tr>             
+      </td>
+    </tr>
     <tr class="middleman">
       <td class="td1">
         <div class="pname">
@@ -95,7 +95,7 @@
         {{else}}
           <p>未支付</p>
         {{/if}}
-				<p><a href="/user/order/detail?orderId={{orderId}}" class="detail">订单详情</a></p>          
+				<p><a href="/user/order/detail?orderId={{orderId}}" class="detail">订单详情</a></p>
       </td>
       <td class="contact td5">
         {{#if isRegistration}}
@@ -110,10 +110,10 @@
     </tr>
     <tr class="divide">
       <td colspan="5"></td>
-    </tr>                   
+    </tr>
   </tbody>
-</template>  
+</template>
 
 <template name="progress">
 
-</template>  
+</template>
